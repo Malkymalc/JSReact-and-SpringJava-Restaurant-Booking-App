@@ -3,5 +3,9 @@ package com.codeclan.restaurantbookingserver.restaurantserver.repositories.table
 import com.codeclan.restaurantbookingserver.restaurantserver.models.Table;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TableRepository extends JpaRepository<Table, Long > {
+import java.util.List;
+
+public interface TableRepository extends JpaRepository<Table, Long >, TableRepositoryCustom {
+    List<Table> findAllTables();
+
 }

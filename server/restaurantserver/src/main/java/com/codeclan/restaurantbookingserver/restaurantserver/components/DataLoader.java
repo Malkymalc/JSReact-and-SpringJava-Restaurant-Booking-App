@@ -77,7 +77,10 @@ import java.util.Date;
             bookingRepository.save(b2);
 
 
-            //table1.addBookings(b1); is this necessary?
+//            table1.addBookings(b1);
+//            tableRepository.save(table1);
+
+
         }
 
 }

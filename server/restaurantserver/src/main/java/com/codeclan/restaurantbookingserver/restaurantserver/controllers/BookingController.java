@@ -29,7 +29,6 @@ public class BookingController {
     @GetMapping("bycustomer/{customerId}")
     public List<Booking> getAllBookingsByCustomerId(@PathVariable Long customerId){
         return bookingRepository.findBookingsByCustomerId(customerId);
-
     }
 
 }
