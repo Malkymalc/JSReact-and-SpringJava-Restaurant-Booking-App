@@ -25,15 +25,15 @@ public class TableController {
         return tableRepository.findAllTablesByDate(date);
     }
 
-    @GetMapping("bookingdatefree/{date}")
-    public List<Table> getAllEmptyTablesByDate(@PathVariable @DateTimeFormat(pattern="yyyy-MM-dd") Date date){
-        List<Table>allTables = tableRepository.findAllTables();
-        List<Table>bookedTables =tableRepository.getAllTablesByDate(date);
-        for (Table table : bookedTables){
-            allTables.remove(table);
-        }
-        return allTables;
-    }
+//    @GetMapping("bookingdatefree/{date}")
+//    public List<Table> getAllEmptyTablesByDate(@PathVariable @DateTimeFormat(pattern="yyyy-MM-dd") Date date){
+//        List<Table>allTables = tableRepository.findAllTables();
+//        List<Table>bookedTables =tableRepository.getAllTablesByDate(date);
+//        for (Table table : bookedTables){
+//            allTables.remove(table);
+//        }
+//        return allTables;
+//    }
 
     @RequestMapping("customers/{customerId}")
     public List<Table>getTableByCustomerId(@PathVariable Long customerId){
