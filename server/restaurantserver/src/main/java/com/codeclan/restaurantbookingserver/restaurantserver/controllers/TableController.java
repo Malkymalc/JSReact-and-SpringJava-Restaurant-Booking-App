@@ -39,4 +39,12 @@ public class TableController {
     public List<Table>getTableByCustomerId(@PathVariable Long customerId){
         return tableRepository.findTableByCustomerId(customerId);
     }
+
+    @GetMapping("findfreetables/{date}/{start_time}/{end_time}")
+    public List<Table> getAllEmptyTablesByDateAndTime
+            (@PathVariable @DateTimeFormat(pattern="yyyy-MM-dd") Date date,
+             @PathVariable @DateTimeFormat(pattern="HH:mm:ss") Date start_time,
+             @PathVariable @DateTimeFormat(pattern="HH:mm:ss") Date end_time){
+        return tableRepository.findEmptyTablesByDateAndTime(date, start_time, end_time);
+    }
 }
