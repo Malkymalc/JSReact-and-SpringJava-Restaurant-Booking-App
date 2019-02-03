@@ -41,7 +41,7 @@ public class TableController {
     }
 
     @GetMapping("findfreetables/{date}/{start_time}/{end_time}")
-    public List<Table> getAllEmptyTablesByDateAndTime
+    public List<Table> findEmptyTablesByDateAndTime
             (@PathVariable @DateTimeFormat(pattern="yyyy-MM-dd") Date date,
              @PathVariable @DateTimeFormat(pattern="HH:mm:ss") Date start_time,
              @PathVariable @DateTimeFormat(pattern="HH:mm:ss") Date end_time){
