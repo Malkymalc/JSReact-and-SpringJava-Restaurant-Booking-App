@@ -94,7 +94,7 @@ public class TableRepositoryImpl implements TableRepositoryCustom{
             cr.add(Restrictions.and(checkDate, checkTime));
             cr.setProjection(Projections.property("id"));
 
-            if (cr.list().size() > 0){
+            if (!cr.list().isEmpty()){
             crB.add(Restrictions.not(Restrictions.in("id", cr.list())));}
 
             results = crB.list();
