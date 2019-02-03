@@ -31,4 +31,11 @@ public class BookingController {
         return bookingRepository.findBookingsByCustomerId(customerId);
     }
 
+    @GetMapping("pastbookings/{customerId}/{date}")
+   public List<Booking>findAllBookingsByCustomerIdAndBeforeDate(@PathVariable Long customerId, @PathVariable @DateTimeFormat(pattern="yyyy-MM-dd")Date date){
+        return  bookingRepository.findAllBookingsByCustomerIdAndBeforeDate(customerId, date);
+    }
+
+
+
 }
