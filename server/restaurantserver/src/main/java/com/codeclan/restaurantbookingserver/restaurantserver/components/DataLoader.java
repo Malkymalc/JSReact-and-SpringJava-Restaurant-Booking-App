@@ -36,11 +36,20 @@ import java.util.Date;
         public void run(ApplicationArguments args){
 
             DateFormat sfd = new SimpleDateFormat("dd-MM-yy");
+            DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
 
             String newDate = "07-02-2019";
+            String newTime = "23:00:00";
             Date date1 = null;
             try {
                 date1 = sfd.parse(newDate);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            Date time1 = null;
+            try {
+                time1 = timeFormat.parse(newTime);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -67,11 +76,11 @@ import java.util.Date;
             Table table5 = new Table("5", 2);
             tableRepository.save(table5);
 
-            Booking b1 = new Booking(date1, borna, 2);
+            Booking b1 = new Booking(date1, time1, borna, 2);
             b1.addTable(table1);
             bookingRepository.save(b1);
 
-            Booking b2 = new Booking(date1, lorna, 5);
+            Booking b2 = new Booking(date1, time1, lorna, 5);
             b2.addTable(table2);
             b2.addTable(table4);
             bookingRepository.save(b2);
