@@ -50,6 +50,7 @@ import java.util.Date;
 
             String newDate = "07-02-2019";
             String newTime = "20:00:00";
+            String newTimeB = "14:00:00";
             Date date1 = null;
             try {
                 date1 = sfd.parse(newDate);
@@ -60,6 +61,13 @@ import java.util.Date;
             Date time1 = null;
             try {
                 time1 = timeFormat.parse(newTime);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            Date time2 = null;
+            try {
+                time2 = timeFormat.parse(newTimeB);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -94,6 +102,10 @@ import java.util.Date;
             b2.addTable(table2);
             b2.addTable(table4);
             bookingRepository.save(b2);
+
+            Booking b3 = new Booking(date1, time2, borna, 3);
+            b3.addTable(table5);
+            bookingRepository.save(b3);
 
             StockItem stockItem1 = new StockItem("Merlot", 14.99);
             stockItemRepository.save(stockItem1);
