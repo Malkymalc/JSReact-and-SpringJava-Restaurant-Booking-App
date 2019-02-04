@@ -49,7 +49,7 @@ import java.util.Date;
             DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
 
             String newDate = "07-02-2019";
-            String newTime = "23:00:00";
+            String newTime = "20:00:00";
             Date date1 = null;
             try {
                 date1 = sfd.parse(newDate);

@@ -12,3 +12,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.booked {
+  background-color: red;
+}
+
+.free {
+  background-color: green;
+}
+
+td {
+  margin: 5px;
+}

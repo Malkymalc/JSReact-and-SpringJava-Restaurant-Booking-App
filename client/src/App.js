@@ -8,8 +8,6 @@ import CustomersContainer from './containers/CustomersContainer.js'
 import ReportsContainer from './containers/ReportsContainer.js'
 import TablesContainer from './containers/TablesContainer.js'
 
-import './App.css';
-
 class App extends Component {
 
   constructor(props){

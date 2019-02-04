@@ -8,6 +8,7 @@ const CustomersList = (props) => {
       <Customer
         customer={customer}
         index={index}
+        key={index}
       />
     );
   })

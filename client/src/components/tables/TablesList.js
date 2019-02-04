@@ -8,6 +8,7 @@ const TablesList = (props) => {
       <Table
         table={table}
         index={index}
+        key={index}
       />
     );
   })

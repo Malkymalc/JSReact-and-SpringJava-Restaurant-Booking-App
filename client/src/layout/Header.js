@@ -6,7 +6,7 @@ const Header = (props) => {
 
   const links = props.links.map((link, index) => {
     return (
-      <Link to={link.url} index={index}>{link.name}</Link>
+      <Link to={link.url} index={index} key={index}>{link.name}</Link>
      );
   });
 
