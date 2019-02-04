@@ -15,6 +15,6 @@ public interface EmbedBookingTables {
     Date getDate();
     Customer getCustomer();
     int getHeadCount();
-    List<Table> getPirates();
+    List<Table> getTables();
 
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 import java.util.List;
 
-public interface BookingRepository extends JpaRepository<Booking, Long> {
+public interface BookingRepository extends JpaRepository<Booking, Long>, BookingRepositoryCustom {
     List<Booking> findBookingsByDate(Date date);
     List<Booking> findBookingsByCustomerId(Long customerId);
 

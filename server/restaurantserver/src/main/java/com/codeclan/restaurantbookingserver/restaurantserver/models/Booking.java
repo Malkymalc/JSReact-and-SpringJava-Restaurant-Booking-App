@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,8 +17,11 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "date")
+    @Column(name = "date", columnDefinition = "Date")
     private Date date;
+
+    @Column(name = "time", columnDefinition = "Time")
+    private Date time;
 
     @Column(name = "headCount")
     private int headCount;
@@ -36,7 +41,8 @@ public class Booking {
     private List<Table> tableList;
 
 
-    public Booking(Date date, Customer customer, int headCount) {
+    public Booking(Date date, Date time, Customer customer, int headCount) {
+        this.time = time;
         this.date = date;
         this.customer = customer;
         this.headCount = headCount;
@@ -54,8 +60,9 @@ public class Booking {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDate() {
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        return df.format(date);
     }
 
     public void setDate(Date date) {
@@ -88,5 +95,14 @@ public class Booking {
 
     public void addTable(Table table){
         this.tableList.add(table);
+    }
+
+    public String getTime() {
+        DateFormat df = new SimpleDateFormat("HH:mm:ss");
+        return df.format(time);
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
     }
 }
