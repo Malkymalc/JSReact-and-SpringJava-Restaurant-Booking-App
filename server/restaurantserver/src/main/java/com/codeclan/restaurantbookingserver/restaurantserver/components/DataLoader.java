@@ -1,10 +1,11 @@
 package com.codeclan.restaurantbookingserver.restaurantserver.components;
 
-import com.codeclan.restaurantbookingserver.restaurantserver.models.Booking;
-import com.codeclan.restaurantbookingserver.restaurantserver.models.Customer;
-import com.codeclan.restaurantbookingserver.restaurantserver.models.Table;
+import com.codeclan.restaurantbookingserver.restaurantserver.models.*;
 import com.codeclan.restaurantbookingserver.restaurantserver.repositories.bookingRepository.BookingRepository;
 import com.codeclan.restaurantbookingserver.restaurantserver.repositories.customerRepository.CustomerRepository;
+import com.codeclan.restaurantbookingserver.restaurantserver.repositories.orderedItemRepository.OrderedItemRepository;
+import com.codeclan.restaurantbookingserver.restaurantserver.repositories.receiptItemRepository.ReceiptItemRepository;
+import com.codeclan.restaurantbookingserver.restaurantserver.repositories.stockItemRepository.StockItemRepository;
 import com.codeclan.restaurantbookingserver.restaurantserver.repositories.tableRepository.TableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -27,6 +28,15 @@ import java.util.Date;
 
         @Autowired
         BookingRepository bookingRepository;
+
+        @Autowired
+        OrderedItemRepository orderedItemRepository;
+
+        @Autowired
+        ReceiptItemRepository receiptItemRepository;
+
+        @Autowired
+        StockItemRepository stockItemRepository;
 
 
         public DataLoader() {
@@ -84,6 +94,33 @@ import java.util.Date;
             b2.addTable(table2);
             b2.addTable(table4);
             bookingRepository.save(b2);
+
+            StockItem stockItem1 = new StockItem("Merlot", 14.99);
+            stockItemRepository.save(stockItem1);
+
+            StockItem stockItem2 = new StockItem("Shiraz", 17.99);
+            stockItemRepository.save(stockItem2);
+
+            StockItem stockItem3 = new StockItem("Cheese", 5.50);
+            stockItemRepository.save(stockItem3);
+
+            StockItem stockItem4 = new StockItem("Cabarnet Savuignon", 20.99);
+            stockItemRepository.save(stockItem4);
+
+            OrderedItem orderedItem1 = new OrderedItem(b1, stockItem1);
+            orderedItemRepository.save(orderedItem1);
+
+            OrderedItem orderedItem2 = new OrderedItem(b1, stockItem2);
+            orderedItemRepository.save(orderedItem2);
+
+            OrderedItem orderedItem3 = new OrderedItem(b1, stockItem3);
+            orderedItemRepository.save(orderedItem3);
+
+            ReceiptItem receiptItem1 = new ReceiptItem("Merlot", 14.99, b2);
+            receiptItemRepository.save(receiptItem1);
+
+            ReceiptItem receiptItem2 = new ReceiptItem("Cabarnet Sauignon", 20.99, b2);
+            receiptItemRepository.save(receiptItem2);
 
 
 //            table1.addBookings(b1);
