@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import TablesList from '../components/tables/TablesList.js';
-import Request from '../../helpers/request.js';
+import Request from '../helpers/requestHelper.js';
 
 
 class TablesContainer extends Component {
@@ -13,7 +13,7 @@ class TablesContainer extends Component {
 
   componentDidMount(){
     let request = new Request()
-    request.get('/api/tables').then(data => {
+    request.get('tables').then(data => {
       this.setState({tables: data._embedded.tables})
     })
   }

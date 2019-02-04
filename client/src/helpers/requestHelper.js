@@ -1,7 +1,7 @@
 export default class RequestHelper {
 
   constructor(){
-    this.host = 'http://localhost:8080'
+    this.host = 'http://localhost:8080/'
   }
 
   get(url){

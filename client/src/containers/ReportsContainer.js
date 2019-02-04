@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Request from '../../helpers/request.js';
+import Request from '../helpers/requestHelper.js';
 
 const ReportsContainer = (props) => {
 

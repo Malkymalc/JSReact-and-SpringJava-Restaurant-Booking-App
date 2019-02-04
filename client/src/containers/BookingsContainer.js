@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import BookingsList from '../../components/bookings/BookingsList.js';
-import Request from '../../helpers/request.js';
+import BookingsList from '../components/bookings/BookingsList.js';
+import Request from '../helpers/requestHelper.js';
 
 
 class BookingsContainer extends Component {
@@ -13,7 +13,7 @@ class BookingsContainer extends Component {
 
   componentDidMount(){
     let request = new Request()
-    request.get('/api/bookings').then(data => {
+    request.get('bookings').then(data => {
       this.setState({bookings: data._embedded.bookings})
     })
   }

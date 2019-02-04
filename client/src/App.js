@@ -1,6 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import NavBar from './layout/Header.js'
+
+import Header from './layout/Header.js'
+import AdminContainer from './containers/AdminContainer.js'
+import BookingsContainer from './containers/BookingsContainer.js'
+import CustomersContainer from './containers/CustomersContainer.js'
+import ReportsContainer from './containers/ReportsContainer.js'
+import TablesContainer from './containers/TablesContainer.js'
+
 import './App.css';
 
 class App extends Component {
@@ -39,7 +46,7 @@ class App extends Component {
       <div>
         <Router>
           <Fragment>
-            <NavBar links={this.state.links}/>
+            <Header links={this.state.links}/>
             <Switch>
               <Route exact path="/bookings" component={BookingsContainer} />
               <Route exact path="/customers" component={CustomersContainer} />
