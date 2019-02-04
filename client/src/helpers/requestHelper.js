@@ -1,27 +1,20 @@
 export default class RequestHelper {
 
-  constructor(){
-    this.host = 'http://localhost:8080/'
-  }
-
   get(url){
-    const fullUrl = this.host + url;
-    return fetch(fullUrl)
+    return fetch(url)
     .then(res => res.json())
     ;
   }
 
   delete(url){
-    const fullUrl = this.host + url;
-    return fetch(fullUrl, {
+    return fetch(url, {
       method: 'DELETE',
       headers: {'Content-Type': 'application/json'}
     })
   }
 
   post(url, payload){
-    const fullUrl = this.host + url;
-    return fetch(fullUrl, {
+    return fetch(url, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(payload)
@@ -29,8 +22,7 @@ export default class RequestHelper {
   }
 
   put(url, payload) {
-    const fullUrl = this.host + url;
-    return fetch(fullUrl, {
+    return fetch(url, {
       method: 'PUT',
       body: JSON.stringify(payload),
       headers: { 'Content-Type': 'application/json'}

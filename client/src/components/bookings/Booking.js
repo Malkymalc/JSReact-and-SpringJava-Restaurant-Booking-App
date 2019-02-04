@@ -11,8 +11,8 @@ const Booking = (props) => {
         <li>Date: {date}</li>
         <li>Time: {time}</li>
         <li>Headcount: {headCount}</li>
-        <li><Link to={customer}>Customer</Link></li>
-        <li> <Link to={tableList}>Tables</Link></li>
+        {/* <li><Link to={customer}>Customer</Link></li>
+        <li> <Link to={tableList}>Tables</Link></li> */}
       </ul>
     </Fragment>
   );

@@ -10,7 +10,7 @@ const Table = (props) => {
     <Fragment>
       <li>Table Number: {tableNumber}</li>
       <li>HeadCount: {seatCount}</li>
-      <li> <Link to={bookings}>Bookings</Link> </li>
+      {/* <li> <Link to={bookings}>Bookings</Link> </li> */}
     </Fragment>
   );
 }
