@@ -7,7 +7,7 @@ const CustomersList = (props) => {
     return (
       <Customer
         customer={customer}
-        index={index}
+        key={index}
       />
     );
   })
