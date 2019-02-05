@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Header from './layout/Header.js'
 import AdminContainer from './containers/AdminContainer.js'
@@ -10,9 +10,15 @@ import TablesContainer from './containers/TablesContainer.js'
 
 import './App.css';
 
+import { withStyles } from '@material-ui/core/styles';
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+
 class App extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       links: [
@@ -36,17 +42,25 @@ class App extends Component {
           url: '/admin',
           name: 'Admin'
         },
-      ]
+      ],
+      name: 'Cat in the Hat',
+      age: '',
+      multiline: 'Controlled',
+      currency: 'EUR'
     }
   }
 
 
+
   render() {
+
+    const { classes } = this.props;
+
     return (
       <div>
         <Router>
           <Fragment>
-            <Header links={this.state.links}/>
+            <Header links={this.state.links} />
             <Switch>
               <Route exact path="/bookings" component={BookingsContainer} />
               <Route exact path="/customers" component={CustomersContainer} />
@@ -54,11 +68,25 @@ class App extends Component {
               <Route exact path="/reports" component={ReportsContainer} />
               <Route exact path="/admin" component={AdminContainer} />
             </Switch>
+            {/* Material Component */}
+            <TextField
+              id="standard-name"
+              label="Name"
+              className={classes.textField}
+              value={this.state.name}
+              onChange={this.handleChange('name')}
+              margin="normal"
+            />
+
           </Fragment>
         </Router>
       </div>
     );
   }
 }
+
+App.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 export default App;
