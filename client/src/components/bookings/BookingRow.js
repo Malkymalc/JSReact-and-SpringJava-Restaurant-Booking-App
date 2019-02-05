@@ -36,7 +36,7 @@ export default class BookingRow extends Component {
     return (
       <tr>
         <td>{this.props.table.tableNumber}</td>
-        <td class="cut-off">{this.props.table.seatCount}</td>
+        <td className="cut-off">{this.props.table.seatCount}</td>
         {tableElements}
       </tr>
     )
