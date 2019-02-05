@@ -14,6 +14,6 @@ import java.util.List;
 @RepositoryRestResource(excerptProjection = EmbedCustomer.class)
 public interface BookingRepository extends JpaRepository<Booking, Long>, BookingRepositoryCustom {
     List<Booking> findBookingsByDate(Date date);
-    List<Booking> findBookingsByCustomerId(Long customerId);
+//    List<Booking> findBookingsByCustomerid(Long customerid);
 
 }
