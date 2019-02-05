@@ -1,19 +1,33 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import React, {Component, Fragment} from 'react';
+import Request from '../../helpers/requestHelper.js';
 
+export default class Customer extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      customer:[]
+    }
+  }
 
-const Customer = (props) => {
+  componentDidMount(){
+    let request = new Request()
+    const url = `${this.props.match.params.id}`;
+    request.get(url).then(data => {
+      this.setState({customer: data});
+      console.log(this.state.customer);
+    })
+  }
 
-  const { firstName, lastName, discount, phoneNumber } = props.customer;
-
+  render(){
   return (
-    <tr>
-      <td>{firstName}</td>
-      <td>{lastName}</td>
-      <td>{discount}%</td>
-      <td>{phoneNumber}</td>
-      </tr>
+    <Fragment>
+    <ul>
+      <li>First Name: {this.state.customer.firstName}</li>
+      <li>Surname: {this.state.customer.lastName}</li>
+      <li>Discount: {this.state.customer.discount}%</li>
+      <li>Phone Number: {this.state.customer.phoneNumber}</li>
+    </ul>
+    </Fragment>
   );
 }
-
-export default Customer;
+}

@@ -1,14 +1,16 @@
 import React, { Fragment } from 'react';
-import Customer from './Customer.js';
+import CustomerRow from './CustomerRow.js';
 import CustomerTableHeader from './CustomerTableHeader.js';
 
 const CustomersList = (props) => {
 
-  const customers = props.customers.map((customer, index) =>{
+  const customers = props.customers
+  .sort((a, b) => {return b.numberOfBookings - a.numberOfBookings;})
+  .map((customer, index) =>{
     return (
-      <Customer
+      <CustomerRow
         customer={customer}
-        index={index}
+        customerId={customer.id}
         key={index}
       />
     );
@@ -17,7 +19,9 @@ const CustomersList = (props) => {
   return (
     <Fragment>
       <CustomerTableHeader/>
+      <tbody>
       { customers }
+      </tbody>
     </Fragment>
   );
 }

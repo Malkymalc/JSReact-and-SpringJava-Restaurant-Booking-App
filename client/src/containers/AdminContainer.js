@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import Request from '../helpers/requestHelper.js';
+import React from 'react';
 
 const AdminContainer = (props) => {
 
