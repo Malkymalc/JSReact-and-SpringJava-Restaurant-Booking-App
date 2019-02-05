@@ -14,7 +14,7 @@ import java.util.List;
 public class Table implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long Id;
 
     @Column(name = "tableNumber")
     private String tableNumber;
@@ -41,11 +41,11 @@ public class Table implements Serializable {
     }
 
     public Long getId() {
-        return id;
+        return Id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.Id = id;
     }
 
     public String getTableNumber() {

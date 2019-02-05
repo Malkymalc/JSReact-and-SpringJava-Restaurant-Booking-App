@@ -1,5 +1,7 @@
 package com.codeclan.restaurantbookingserver.restaurantserver.models;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import javax.persistence.Table;
 
@@ -9,10 +11,11 @@ public class OrderedItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long Id;
 
     @ManyToOne
     @JoinColumn(name = "booking_id", nullable = false)
+    @Cascade(org.hibernate.annotations.CascadeType.REMOVE)
     private Booking booking;
 
     @ManyToOne
@@ -28,11 +31,11 @@ public class OrderedItem {
     }
 
     public Long getId() {
-        return id;
+        return Id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.Id = id;
     }
 
     public StockItem getStockItem() {
