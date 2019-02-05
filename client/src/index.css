@@ -94,6 +94,10 @@ footer {
   border: 3px solid white;  
 }
 
+.free:hover{
+  background-color: black;
+}
+
 table, th, td{
   padding: 5px;
 }

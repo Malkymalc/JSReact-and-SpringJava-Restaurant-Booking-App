@@ -49,6 +49,7 @@ import java.util.Date;
             DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
 
             String newDate = "07-02-2019";
+            String newTimeC = "21:00:00";
             String newTime = "20:00:00";
             String newTimeB = "14:00:00";
             Date date1 = null;
@@ -68,6 +69,13 @@ import java.util.Date;
             Date time2 = null;
             try {
                 time2 = timeFormat.parse(newTimeB);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            Date time3 = null;
+            try {
+                time3 = timeFormat.parse(newTimeC);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -106,6 +114,14 @@ import java.util.Date;
             Booking b3 = new Booking(date1, time2, borna, 3);
             b3.addTable(table5);
             bookingRepository.save(b3);
+
+            Booking b4 = new Booking(date1, time2, lorna, 4);
+            b4.addTable(table4);
+            bookingRepository.save(b4);
+
+            Booking b5 = new Booking(date1, time3, lorna, 4);
+            b5.addTable(table4);
+            bookingRepository.save(b5);
 
             StockItem stockItem1 = new StockItem("Merlot", 14.99);
             stockItemRepository.save(stockItem1);
