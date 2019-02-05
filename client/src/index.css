@@ -14,11 +14,11 @@ code {
 }
 
 .booked {
-  background-color: red;
+  background: linear-gradient(to left, #ac340e, #d74b2c);
 }
 
 .free {
-  background-color: green;
+  background: linear-gradient(to right, green, #41b476);
 }
 
 table, th, td{
