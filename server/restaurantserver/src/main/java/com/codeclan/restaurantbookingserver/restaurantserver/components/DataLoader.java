@@ -94,29 +94,23 @@ import java.util.Date;
             Table table5 = new Table("5", 2);
             tableRepository.save(table5);
 
-            Booking b1 = new Booking(date1, newTime, borna, 2);
-            b1.addTable(table1);
+            Booking b1 = new Booking(date1, newTime, borna, 2, table1);
             bookingRepository.save(b1);
 
-            Booking b2 = new Booking(date1, newTime, lorna, 5);
-            b2.addTable(table2);
-            b2.addTable(table4);
+            Booking b2 = new Booking(date1, newTime, lorna, 5, table2);
+
             bookingRepository.save(b2);
 
-            Booking b3 = new Booking(date1, newTimeB, borna, 3);
-            b3.addTable(table5);
+            Booking b3 = new Booking(date1, newTimeB, borna, 3,table3);
             bookingRepository.save(b3);
 
-            Booking b4 = new Booking(date1, newTimeB, lorna, 4);
-            b4.addTable(table4);
+            Booking b4 = new Booking(date1, newTimeB, lorna, 4, table4);
             bookingRepository.save(b4);
 
-            Booking b5 = new Booking(date1, newTimeC, lorna, 4);
-            b5.addTable(table4);
+            Booking b5 = new Booking(date1, newTimeC, lorna, 4, table5);
             bookingRepository.save(b5);
 
-            Booking b6 = new Booking(date2, newTime, ross, 1);
-            b6.addTable(table1);
+            Booking b6 = new Booking(date2, newTime, ross, 1, table3);
             bookingRepository.save(b6);
 
             StockItem stockItem1 = new StockItem("Merlot", 14.99);

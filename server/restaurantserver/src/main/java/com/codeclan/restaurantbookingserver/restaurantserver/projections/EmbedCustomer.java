@@ -15,5 +15,5 @@ public interface EmbedCustomer {
     String getTime();
     Customer getCustomer();
     int getHeadCount();
-    List<Table> getTableList();
+    Table getTable();
 }
