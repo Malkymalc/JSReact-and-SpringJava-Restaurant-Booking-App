@@ -33,7 +33,7 @@ const BookingForm = (props) => {
       {timeOptions}
     </select>
 
-    <input type="number" placeholder="headcount" name="headcount"/>
+    <input type="number" placeholder="headcount" name="headcount" min="1" max="4"/>
     <select name="customer">
       {customerOptions}
     </select>
