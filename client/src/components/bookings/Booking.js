@@ -8,9 +8,20 @@ export default class Booking extends Component {
     super(props);
 
     this.state = {
+      id: this.props.match.params.id,
       booking: [],
       customer: []
     };
+
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleDelete(){
+    let request = new Request();
+    const url = `${this.state.id}`;
+    request.delete(url).then(() => {
+      window.location = '/bookings';
+    })
   }
 
   componentDidMount(){
@@ -30,6 +41,7 @@ export default class Booking extends Component {
       <li>Date: {this.state.booking.date}</li>
       <li>Time: {this.state.booking.time}</li>
       <li>Number Of People: {this.state.booking.headCount}</li>
+      <button onClick={this.handleDelete}>Delete Booking</button>
     </ul>
     </Fragment>
   );

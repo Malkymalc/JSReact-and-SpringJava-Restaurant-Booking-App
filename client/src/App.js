@@ -35,6 +35,9 @@ class App extends Component {
     }
   }
 
+  deleteBooking(){
+  }
+
 
   render() {
     return (

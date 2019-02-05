@@ -28,6 +28,7 @@ public class Booking implements Serializable {
     private int headCount;
 
     @ManyToOne
+    @Cascade(org.hibernate.annotations.CascadeType.DETACH)
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
@@ -41,6 +42,15 @@ public class Booking implements Serializable {
     )
     private List<Table> tableList;
 
+    @OneToMany(mappedBy = "booking")
+    @Cascade(org.hibernate.annotations.CascadeType.REMOVE)
+    private List<OrderedItem> orderedItems;
+
+    @OneToMany(mappedBy = "booking")
+    @Cascade(org.hibernate.annotations.CascadeType.REMOVE)
+    private List<ReceiptItem> receiptItems;
+
+
 
     public Booking(Date date, Date time, Customer customer, int headCount) {
         this.time = time;
@@ -48,6 +58,8 @@ public class Booking implements Serializable {
         this.customer = customer;
         this.headCount = headCount;
         this.tableList = new ArrayList<Table>();
+        this.orderedItems = new ArrayList<>();
+        this.receiptItems = new ArrayList<>();
     }
 
     public Booking() {
@@ -105,5 +117,21 @@ public class Booking implements Serializable {
 
     public void setTime(Date time) {
         this.time = time;
+    }
+
+    public List<OrderedItem> getOrderedItems() {
+        return orderedItems;
+    }
+
+    public void setOrderedItems(List<OrderedItem> orderedItems) {
+        this.orderedItems = orderedItems;
+    }
+
+    public List<ReceiptItem> getReceiptItems() {
+        return receiptItems;
+    }
+
+    public void setReceiptItems(List<ReceiptItem> receiptItems) {
+        this.receiptItems = receiptItems;
     }
 }
