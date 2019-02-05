@@ -13,7 +13,7 @@ const Header = (props) => {
   return (
     <Fragment>
       <ul class="header">
-        <li>Booze&Food</li>
+        <li ><i class="fas fa-beer"></i>  Booze & Food</li>
         <li class="navigation">{links}</li>
       </ul>
     </Fragment>
