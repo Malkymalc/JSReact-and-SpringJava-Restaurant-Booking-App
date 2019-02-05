@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @Entity
 @javax.persistence.Table(name = "bookings")
-public class Booking {
+public class Booking implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,6 +28,7 @@ public class Booking {
     private int headCount;
 
     @ManyToOne
+    @Cascade(org.hibernate.annotations.CascadeType.DETACH)
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
@@ -40,6 +42,15 @@ public class Booking {
     )
     private List<Table> tableList;
 
+    @OneToMany(mappedBy = "booking")
+    @Cascade(org.hibernate.annotations.CascadeType.REMOVE)
+    private List<OrderedItem> orderedItems;
+
+    @OneToMany(mappedBy = "booking")
+    @Cascade(org.hibernate.annotations.CascadeType.REMOVE)
+    private List<ReceiptItem> receiptItems;
+
+
 
     public Booking(Date date, Date time, Customer customer, int headCount) {
         this.time = time;
@@ -47,6 +58,8 @@ public class Booking {
         this.customer = customer;
         this.headCount = headCount;
         this.tableList = new ArrayList<Table>();
+        this.orderedItems = new ArrayList<>();
+        this.receiptItems = new ArrayList<>();
     }
 
     public Booking() {
@@ -104,5 +117,21 @@ public class Booking {
 
     public void setTime(Date time) {
         this.time = time;
+    }
+
+    public List<OrderedItem> getOrderedItems() {
+        return orderedItems;
+    }
+
+    public void setOrderedItems(List<OrderedItem> orderedItems) {
+        this.orderedItems = orderedItems;
+    }
+
+    public List<ReceiptItem> getReceiptItems() {
+        return receiptItems;
+    }
+
+    public void setReceiptItems(List<ReceiptItem> receiptItems) {
+        this.receiptItems = receiptItems;
     }
 }

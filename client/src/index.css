@@ -12,3 +12,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.booked {
+  background-color: red;
+}
+
+.free {
+  background-color: green;
+}
+
+.free:hover{
+  background-color: black;
+}
+
+table, th, td{
+  padding: 5px;
+  border: 1px solid black;
+  text-align: center;
+}
