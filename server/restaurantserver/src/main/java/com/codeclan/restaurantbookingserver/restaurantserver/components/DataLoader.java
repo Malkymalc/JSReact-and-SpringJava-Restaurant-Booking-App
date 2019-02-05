@@ -45,13 +45,15 @@ import java.util.Date;
 
         public void run(ApplicationArguments args){
 
-            DateFormat sfd = new SimpleDateFormat("dd-MM-yy");
-            DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+            DateFormat sfd = new SimpleDateFormat("dd-MM-yyyy");
 
             String newDate = "07-02-2019";
+            String newDateB = "14-02-2019";
+
             String newTimeC = "21:00:00";
             String newTime = "20:00:00";
             String newTimeB = "14:00:00";
+
             Date date1 = null;
             try {
                 date1 = sfd.parse(newDate);
@@ -59,26 +61,13 @@ import java.util.Date;
                 e.printStackTrace();
             }
 
-            Date time1 = null;
+            Date date2 = null;
             try {
-                time1 = timeFormat.parse(newTime);
+                date2 = sfd.parse(newDateB);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
 
-            Date time2 = null;
-            try {
-                time2 = timeFormat.parse(newTimeB);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
-            Date time3 = null;
-            try {
-                time3 = timeFormat.parse(newTimeC);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
 
 
             Customer borna = new Customer("Borna", "Maticic", 0, "078745678");
@@ -86,6 +75,9 @@ import java.util.Date;
 
             Customer lorna = new Customer("Lorna", "Dickson", 0,"078745679" );
             customerRepository.save(lorna);
+
+            Customer ross = new Customer("Ross", "Hancock", 50, "07713254673");
+            customerRepository.save(ross);
 
             Table table1 = new Table("1", 4);
             tableRepository.save(table1);
@@ -115,13 +107,17 @@ import java.util.Date;
             b3.addTable(table5);
             bookingRepository.save(b3);
 
-            Booking b4 = new Booking(date1, time2, lorna, 4);
+            Booking b4 = new Booking(date1, newTimeB, lorna, 4);
             b4.addTable(table4);
             bookingRepository.save(b4);
 
-            Booking b5 = new Booking(date1, time3, lorna, 4);
+            Booking b5 = new Booking(date1, newTimeC, lorna, 4);
             b5.addTable(table4);
             bookingRepository.save(b5);
+
+            Booking b6 = new Booking(date2, newTime, ross, 1);
+            b6.addTable(table1);
+            bookingRepository.save(b6);
 
             StockItem stockItem1 = new StockItem("Merlot", 14.99);
             stockItemRepository.save(stockItem1);

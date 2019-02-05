@@ -6,7 +6,9 @@ export default class BookingRow extends Component {
     let bookingHash = {};
     if (this.props.table._embedded) {
       this.props.table._embedded.bookings.forEach((booking) => {
+        if(booking.date == this.props.date){
         bookingHash[booking.time] = booking.id;
+      }
       })
     }
 
