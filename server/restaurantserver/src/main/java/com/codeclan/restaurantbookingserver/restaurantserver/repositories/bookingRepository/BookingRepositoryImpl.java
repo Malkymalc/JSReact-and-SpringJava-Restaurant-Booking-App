@@ -24,7 +24,7 @@ public class BookingRepositoryImpl {
 
         try {
             Criteria cr = session.createCriteria(Booking.class);
-            cr.add(Restrictions.eq("customer.id", customerId));
+            cr.add(Restrictions.eq("customer.Id", customerId));
             cr.add(Restrictions.le("date", date));
             result = cr.list();
         } catch (HibernateException e) {

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import Customer from './Customer.js';
+import CustomerTableHeader from './CustomerTableHeader.js';
 
 const CustomersList = (props) => {
 
@@ -15,6 +16,7 @@ const CustomersList = (props) => {
 
   return (
     <Fragment>
+      <CustomerTableHeader/>
       { customers }
     </Fragment>
   );

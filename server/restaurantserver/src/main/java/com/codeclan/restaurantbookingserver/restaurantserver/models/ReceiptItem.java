@@ -1,5 +1,7 @@
 package com.codeclan.restaurantbookingserver.restaurantserver.models;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import javax.persistence.Table;
 
@@ -9,7 +11,7 @@ public class ReceiptItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long Id;
 
     @Column(name = "name")
     private String name;
@@ -19,6 +21,7 @@ public class ReceiptItem {
 
     @ManyToOne
     @JoinColumn(name = "booking_id", nullable = false)
+    @Cascade(org.hibernate.annotations.CascadeType.REMOVE)
     private Booking booking;
 
     public ReceiptItem(String name, double price, Booking booking) {
@@ -31,11 +34,11 @@ public class ReceiptItem {
     }
 
     public Long getId() {
-        return id;
+        return Id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.Id = id;
     }
 
     public String getName() {
