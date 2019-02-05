@@ -86,15 +86,15 @@ footer {
 
 .booked {
   background-color: #ff8a65;
-  border: 3px solid white; 
+  border: 3px solid white;
 }
 
 .free {
   background-color: #c5e1a5;
-  border: 3px solid white;  
+  border: 3px solid white;
 }
 
-.free:hover{
+td:hover{
   background-color: black;
 }
 
