@@ -6,14 +6,16 @@ const Header = (props) => {
 
   const links = props.links.map((link, index) => {
     return (
-      <Link to={link.url} index={index} key={index}>{link.name}</Link>
-     );
+      <Link className="nav-item" to={link.url} index={index} key={index}>{link.name}</Link>
+    );
   });
 
   return (
     <Fragment>
-      <h1>Booze&Food</h1>
-      {links}
+      <ul className="header">
+        <li ><i className="fas fa-beer"></i>  Booze & Food</li>
+        <li className="navigation">{links}</li>
+      </ul>
     </Fragment>
   );
 

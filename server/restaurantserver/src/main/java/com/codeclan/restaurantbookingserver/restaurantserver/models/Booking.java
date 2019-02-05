@@ -16,13 +16,13 @@ import java.util.List;
 public class Booking implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long Id;
 
     @Column(name = "date", columnDefinition = "Date")
     private Date date;
 
-    @Column(name = "time", columnDefinition = "Time")
-    private Date time;
+    @Column(name = "time")
+    private String time;
 
     @Column(name = "headCount")
     private int headCount;
@@ -31,16 +31,22 @@ public class Booking implements Serializable {
     @Cascade(org.hibernate.annotations.CascadeType.DETACH)
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
+    //
+//    @JsonIgnoreProperties("bookings")
+//    @ManyToMany
+//    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+//    @JoinTable(
+//            name = "tables_bookings",
+//            joinColumns = {@JoinColumn(name = "booking_id", nullable = false, updatable = false)},
+//            inverseJoinColumns = {@JoinColumn(name="table_id", nullable = false, updatable = false)}
+//    )
+    @ManyToOne
+    @Cascade(org.hibernate.annotations.CascadeType.DETACH)
+    @JoinColumn(name = "table_id", nullable = false)
+    private Table table;
 
-    @JsonIgnoreProperties("bookings")
-    @ManyToMany
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JoinTable(
-            name = "tables_bookings",
-            joinColumns = {@JoinColumn(name = "booking_id", nullable = false, updatable = false)},
-            inverseJoinColumns = {@JoinColumn(name="table_id", nullable = false, updatable = false)}
-    )
-    private List<Table> tableList;
+
+//    private List<Table> tableList;
 
     @OneToMany(mappedBy = "booking")
     @Cascade(org.hibernate.annotations.CascadeType.REMOVE)
@@ -52,12 +58,12 @@ public class Booking implements Serializable {
 
 
 
-    public Booking(Date date, Date time, Customer customer, int headCount) {
+    public Booking(Date date, String time, Customer customer, int headCount, Table table) {
         this.time = time;
         this.date = date;
         this.customer = customer;
         this.headCount = headCount;
-        this.tableList = new ArrayList<Table>();
+        this.table = table;
         this.orderedItems = new ArrayList<>();
         this.receiptItems = new ArrayList<>();
     }
@@ -66,11 +72,11 @@ public class Booking implements Serializable {
     }
 
     public Long getId() {
-        return id;
+        return Id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.Id = id;
     }
 
     public String getDate() {
@@ -98,24 +104,34 @@ public class Booking implements Serializable {
         this.customer = customer;
     }
 
-    public List<Table> getTableList() {
-        return tableList;
+//    public List<Table> getTableList() {
+//        return tableList;
+//    }
+//
+//    public void setTableList(List<Table> tableList) {
+//        this.tableList = tableList;
+//    }
+//
+//    public void addTable(Table table){
+//        this.tableList.add(table);
+//    }
+
+
+    public Table getTable() {
+        return table;
     }
 
-    public void setTableList(List<Table> tableList) {
-        this.tableList = tableList;
-    }
-
-    public void addTable(Table table){
-        this.tableList.add(table);
+    public void setTable(Table table) {
+        this.table = table;
     }
 
     public String getTime() {
-        DateFormat df = new SimpleDateFormat("HH:mm:ss");
-        return df.format(time);
+        //DateFormat df = new SimpleDateFormat("HH:mm:ss");
+//        return df.format(time);
+        return this.time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

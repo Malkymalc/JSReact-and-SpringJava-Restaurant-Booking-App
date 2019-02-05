@@ -1,42 +1,50 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 
 export default class BookingRow extends Component {
 
-  generateBookingTimes(){
+  generateBookingTimes() {
     let bookingHash = {};
     if (this.props.table._embedded) {
-    this.props.table._embedded.bookings.forEach((booking) => {
-      bookingHash[booking.time] = booking.id;
-    })}
+      this.props.table._embedded.bookings.forEach((booking) => {
+        if(booking.date == this.props.date){
+        bookingHash[booking.time] = booking.id;
+      }
+      })
+    }
 
     return bookingHash;
   }
 
-  render(){
+  test(data){
+    window.location = "/bookings/" + data.target.title;
+  }
+
+  render() {
 
     const timesBooked = this.generateBookingTimes();
     const tableElements = [];
 
     for (let i = 10; i < 22; i++) {
-      const stringTime = i + ":00:00";
-      let cName = "";
-      let content;
+      const stringTime = i + ":00";
+      let cName;
+      let contentURL;
       if (Object.keys(timesBooked).includes(stringTime)) {
         cName = "booked";
         const linkID = timesBooked[stringTime];
-        content = <a href={"http://localhost:3000/bookings/" + linkID}><b>Booked</b></a>;
+        contentURL = `${linkID}`
       } else {
         cName = "free";
-        content = ""
+        contentURL = "new"
       }
-      tableElements.push(<td className = {cName} key={i}>{content}</td>);
+      tableElements.push(<td className={cName} key={i} onClick={this.test} title={contentURL}><a href = {contentURL}></a></td>);
     }
 
-  return(
-    <tr>
-    <td>{this.props.table.tableNumber}</td>
-    <td>{this.props.table.seatCount}</td>
-    {tableElements}
-    </tr>
-  )}
+    return (
+      <tr>
+        <td>{this.props.table.tableNumber}</td>
+        <td className="cut-off">{this.props.table.seatCount}</td>
+        {tableElements}
+      </tr>
+    )
+  }
 };

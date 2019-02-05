@@ -14,6 +14,7 @@ export default class RequestHelper {
   }
 
   post(url, payload){
+    console.log(url);
     return fetch(url, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
