@@ -26,10 +26,10 @@ public class BookingController {
         return bookingRepository.findBookingsByDate(date);
     }
 
-    @GetMapping("bycustomer/{customerId}")
-    public List<Booking> getAllBookingsByCustomerId(@PathVariable Long customerId){
-        return bookingRepository.findBookingsByCustomerId(customerId);
-    }
+//    @GetMapping("bycustomer/{customerId}")
+//    public List<Booking> getAllBookingsByCustomerId(@PathVariable Long customerId){
+//        return bookingRepository.findBookingsByCustomerId(customerId);
+//    }
 
     @GetMapping("pastbookings/{customerId}/{date}")
    public List<Booking>findAllBookingsByCustomerIdAndBeforeDate(@PathVariable Long customerId, @PathVariable @DateTimeFormat(pattern="yyyy-MM-dd")Date date){

@@ -7,6 +7,7 @@ import BookingsContainer from './containers/BookingsContainer.js'
 import CustomersContainer from './containers/CustomersContainer.js'
 import ReportsContainer from './containers/ReportsContainer.js'
 import TablesContainer from './containers/TablesContainer.js'
+import Booking from './components/bookings/Booking.js'
 
 class App extends Component {
 
@@ -23,10 +24,6 @@ class App extends Component {
           name: 'Customers'
         },
         {
-          url: '/tables',
-          name: 'Tables'
-        },
-        {
           url: '/reports',
           name: 'Reports'
         },
@@ -36,6 +33,9 @@ class App extends Component {
         },
       ]
     }
+  }
+
+  deleteBooking(){
   }
 
 
@@ -48,9 +48,9 @@ class App extends Component {
             <Switch>
               <Route exact path="/bookings" component={BookingsContainer} />
               <Route exact path="/customers" component={CustomersContainer} />
-              <Route exact path="/tables" component={TablesContainer} />
               <Route exact path="/reports" component={ReportsContainer} />
               <Route exact path="/admin" component={AdminContainer} />
+              <Route exact path="/bookings/:id" component={Booking}/>
             </Switch>
           </Fragment>
         </Router>
