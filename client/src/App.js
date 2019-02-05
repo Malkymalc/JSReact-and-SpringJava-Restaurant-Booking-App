@@ -8,6 +8,7 @@ import CustomersContainer from './containers/CustomersContainer.js'
 import ReportsContainer from './containers/ReportsContainer.js'
 import TablesContainer from './containers/TablesContainer.js'
 import BookingFormContainer from './containers/BookingFormContainer.js'
+import Booking from './components/bookings/Booking.js';
 
 class App extends Component {
 
@@ -57,6 +58,7 @@ class App extends Component {
               <Route exact path="/reports" component={ReportsContainer} />
               <Route exact path="/admin" component={AdminContainer} />
               <Route exact path="/bookings/new" component={BookingFormContainer} />
+              <Route exact path="/bookings/:id" component={Booking} />
             </Switch>
           </Fragment>
         </Router>
