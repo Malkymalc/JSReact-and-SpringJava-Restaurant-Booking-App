@@ -13,16 +13,35 @@ code {
     monospace;
 }
 
+/* Table Styling */
+
 .booked {
-  background-color: red;
+  background-color: #ff8a65;
+  border: 3px solid white; 
 }
 
 .free {
-  background-color: green;
+  background-color: #c5e1a5;
+  border: 3px solid white;  
 }
 
 table, th, td{
   padding: 5px;
-  border: 1px solid black;
-  text-align: center;
+}
+
+th {
+  font-size: 10px;
+  font-weight: bold;
+  color: #757575;
+}
+
+td {
+  font-size: 14px;
+  color: #494949;
+}
+
+.cut-off {
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: #eeeeee;
 }

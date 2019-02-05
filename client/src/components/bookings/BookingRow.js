@@ -1,15 +1,15 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 
 export default class BookingRow extends Component {
 
-  generateBookingTimes(){
-    if (!this.props.table._embedded) {return [];}
+  generateBookingTimes() {
+    if (!this.props.table._embedded) { return []; }
     return this.props.table._embedded.bookings.map((booking) => {
       return booking.time;
     })
   }
 
-  render(){
+  render() {
 
     const timesBooked = this.generateBookingTimes();
     const tableElements = [];
@@ -22,14 +22,15 @@ export default class BookingRow extends Component {
       } else {
         cName = "free";
       }
-      tableElements.push(<td className = {cName} key={i}></td>);
+      tableElements.push(<td className={cName} key={i}></td>);
     }
 
-  return(
-    <tr>
-    <td>{this.props.table.tableNumber}</td>
-    <td>{this.props.table.seatCount}</td>
-    {tableElements}
-    </tr>
-  )}
+    return (
+      <tr>
+        <td>{this.props.table.tableNumber}</td>
+        <td class="cut-off">{this.props.table.seatCount}</td>
+        {tableElements}
+      </tr>
+    )
+  }
 };
