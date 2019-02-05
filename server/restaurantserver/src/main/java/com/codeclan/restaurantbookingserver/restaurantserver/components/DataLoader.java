@@ -94,16 +94,16 @@ import java.util.Date;
             Table table5 = new Table("5", 2);
             tableRepository.save(table5);
 
-            Booking b1 = new Booking(date1, time1, borna, 2);
+            Booking b1 = new Booking(date1, newTime, borna, 2);
             b1.addTable(table1);
             bookingRepository.save(b1);
 
-            Booking b2 = new Booking(date1, time1, lorna, 5);
+            Booking b2 = new Booking(date1, newTime, lorna, 5);
             b2.addTable(table2);
             b2.addTable(table4);
             bookingRepository.save(b2);
 
-            Booking b3 = new Booking(date1, time2, borna, 3);
+            Booking b3 = new Booking(date1, newTimeB, borna, 3);
             b3.addTable(table5);
             bookingRepository.save(b3);
 

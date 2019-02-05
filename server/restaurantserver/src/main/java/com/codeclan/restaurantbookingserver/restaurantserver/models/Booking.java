@@ -21,8 +21,8 @@ public class Booking implements Serializable {
     @Column(name = "date", columnDefinition = "Date")
     private Date date;
 
-    @Column(name = "time", columnDefinition = "Time")
-    private Date time;
+    @Column(name = "time")
+    private String time;
 
     @Column(name = "headCount")
     private int headCount;
@@ -42,7 +42,7 @@ public class Booking implements Serializable {
     private List<Table> tableList;
 
 
-    public Booking(Date date, Date time, Customer customer, int headCount) {
+    public Booking(Date date, String time, Customer customer, int headCount) {
         this.time = time;
         this.date = date;
         this.customer = customer;
@@ -99,11 +99,12 @@ public class Booking implements Serializable {
     }
 
     public String getTime() {
-        DateFormat df = new SimpleDateFormat("HH:mm:ss");
-        return df.format(time);
+        //DateFormat df = new SimpleDateFormat("HH:mm:ss");
+//        return df.format(time);
+        return this.time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
 }
