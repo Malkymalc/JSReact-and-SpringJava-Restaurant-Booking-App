@@ -1,7 +1,6 @@
 import React from 'react'
 
 const BookingForm = (props) => {
-  console.log(props);
 
   const customerOptions = props.customer.map((customer) => {
     return <option key={customer.id} value={customer._links.self.href}>{customer.lastName}</option>
@@ -11,9 +10,9 @@ const BookingForm = (props) => {
     return <option key={table.id} value={table._links.self.href}>{table.tableNumber}</option>
   })
 
-  // const timeOptions = props.timeSlots.map(time, index) => {
-  //   return <option key={index} value={time}>{customer.lastName}</option>
-  // })
+  const timeOptions = props.times.map((time, index) => {
+    return <option key={index}>{time}</option>
+  })
 
   function handleSubmit(event){
     event.preventDefault()
@@ -30,7 +29,10 @@ const BookingForm = (props) => {
   return (
     <form onSubmit={handleSubmit}>
     <input type="date" placeholder="date" name="date"/>
-    <input type="string" placeholder="time" name="time"/>
+    <select name="time">
+      {timeOptions}
+    </select>
+
     <input type="number" placeholder="headcount" name="headcount"/>
     <select name="customer">
       {customerOptions}

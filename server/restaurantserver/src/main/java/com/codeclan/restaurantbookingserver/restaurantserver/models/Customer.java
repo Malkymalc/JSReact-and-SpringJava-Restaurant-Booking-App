@@ -4,7 +4,6 @@ import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import javax.persistence.Table;
-import java.awt.print.Book;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +15,7 @@ import java.util.List;
 public class Customer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @Column(name = "firstName")
     private String firstName;
@@ -46,11 +45,11 @@ public class Customer implements Serializable {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        this.Id = id;
+        this.id = id;
     }
 
     public String getFirstName() {

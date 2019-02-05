@@ -1,6 +1,5 @@
 package com.codeclan.restaurantbookingserver.restaurantserver.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -14,7 +13,7 @@ import java.util.List;
 public class Table implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @Column(name = "tableNumber")
     private String tableNumber;
@@ -44,11 +43,11 @@ public class Table implements Serializable {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        this.Id = id;
+        this.id = id;
     }
 
     public String getTableNumber() {

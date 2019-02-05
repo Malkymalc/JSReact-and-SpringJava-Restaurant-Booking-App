@@ -1,6 +1,5 @@
 package com.codeclan.restaurantbookingserver.restaurantserver.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -16,7 +15,7 @@ import java.util.List;
 public class Booking implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @Column(name = "date", columnDefinition = "Date")
     private Date date;
@@ -72,11 +71,11 @@ public class Booking implements Serializable {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        this.Id = id;
+        this.id = id;
     }
 
     public String getDate() {
