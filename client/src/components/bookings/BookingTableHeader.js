@@ -5,6 +5,7 @@ const BookingTableHeader = (props) => {
     <thead>
     <tr>
     <th>Table Info</th>
+    <th>Capacity</th>
     <th>10:00</th>
     <th>11:00</th>
     <th>12:00</th>

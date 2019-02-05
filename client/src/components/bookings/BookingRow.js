@@ -28,6 +28,7 @@ export default class BookingRow extends Component {
   return(
     <tr>
     <td>{this.props.table.tableNumber}</td>
+    <td>{this.props.table.seatCount}</td>
     {tableElements}
     </tr>
   )}

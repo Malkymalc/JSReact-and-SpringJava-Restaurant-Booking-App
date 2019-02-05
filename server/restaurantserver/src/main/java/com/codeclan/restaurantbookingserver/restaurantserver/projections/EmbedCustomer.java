@@ -10,6 +10,7 @@ import java.util.List;
 @Projection(name= "embedCustomer", types = Booking.class)
 
 public interface EmbedCustomer {
+    Long getId();
     String getDate();
     String getTime();
     Customer getCustomer();
