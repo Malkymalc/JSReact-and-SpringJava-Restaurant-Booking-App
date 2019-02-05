@@ -25,7 +25,7 @@ export default class BookingRow extends Component {
     const tableElements = [];
 
     for (let i = 10; i < 22; i++) {
-      const stringTime = i + ":00:00";
+      const stringTime = i + ":00";
       let cName;
       let contentURL;
       if (Object.keys(timesBooked).includes(stringTime)) {

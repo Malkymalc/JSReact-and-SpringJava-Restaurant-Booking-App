@@ -50,9 +50,9 @@ import java.util.Date;
             String newDate = "07-02-2019";
             String newDateB = "14-02-2019";
 
-            String newTimeC = "21:00:00";
-            String newTime = "20:00:00";
-            String newTimeB = "14:00:00";
+            String newTimeC = "21:00";
+            String newTime = "20:00";
+            String newTimeB = "14:00";
 
             Date date1 = null;
             try {
