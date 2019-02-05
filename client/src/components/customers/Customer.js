@@ -7,12 +7,12 @@ const Customer = (props) => {
   const { firstName, lastName, discount, phoneNumber } = props.customer;
 
   return (
-    <Fragment>
-      <li>First Name: {firstName}</li>
-      <li>Last Name: {lastName}</li>
-      <li>Discount: {discount}</li>
-      <li>Phone Number: {phoneNumber}</li>
-    </Fragment>
+    <tr>
+      <td>{firstName}</td>
+      <td>{lastName}</td>
+      <td>{discount}%</td>
+      <td>{phoneNumber}</td>
+      </tr>
   );
 }
 

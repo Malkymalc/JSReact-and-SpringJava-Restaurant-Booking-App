@@ -21,6 +21,10 @@ code {
   background-color: green;
 }
 
+.free:hover{
+  background-color: black;
+}
+
 table, th, td{
   padding: 5px;
   border: 1px solid black;
