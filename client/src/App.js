@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Header from './layout/Header.js'
+import Footer from './layout/Footer.js'
 import AdminContainer from './containers/AdminContainer.js'
 import BookingsContainer from './containers/BookingsContainer.js'
 import CustomersContainer from './containers/CustomersContainer.js'
@@ -11,7 +12,7 @@ import BookingFormContainer from './containers/BookingFormContainer.js'
 
 class App extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       links: [
@@ -49,7 +50,7 @@ class App extends Component {
       <div>
         <Router>
           <Fragment>
-            <Header links={this.state.links}/>
+            <Header links={this.state.links} />
             <Switch>
               <Route exact path="/bookings" component={BookingsContainer} />
               <Route exact path="/customers" component={CustomersContainer} />
@@ -58,6 +59,7 @@ class App extends Component {
               <Route exact path="/admin" component={AdminContainer} />
               <Route exact path="/bookings/new" component={BookingFormContainer} />
             </Switch>
+            <Footer />
           </Fragment>
         </Router>
       </div>
