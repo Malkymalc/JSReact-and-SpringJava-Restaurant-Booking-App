@@ -28,6 +28,7 @@ export default class BookingRow extends Component {
       const stringTime = i + ":00";
       let cName;
       let contentURL;
+      let covers;
       if (Object.keys(timesBooked).includes(stringTime)) {
         cName = "booked";
         const linkID = timesBooked[stringTime];
@@ -36,7 +37,7 @@ export default class BookingRow extends Component {
         cName = "free";
         contentURL = "new"
       }
-      tableElements.push(<td className={cName} key={i} onClick={this.test} title={contentURL}><a href = {contentURL}></a></td>);
+      tableElements.push(<td className={cName} key={i} onClick={this.test} title={contentURL}><a href = {contentURL}>{covers}</a></td>);
     }
 
     return (

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Request from '../helpers/requestHelper.js';
+import BookingFormModal from '../components/bookings/BookingFormModal.js'
 
 const AdminContainer = (props) => {
 
   return (
-    <h1>This is admin</h1>
+    <BookingFormModal lastName='CharlieBoy' />
   );
 }
 
