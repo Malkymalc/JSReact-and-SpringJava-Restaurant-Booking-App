@@ -48,6 +48,7 @@ export default class Booking extends Component {
       <li>Date: {this.state.booking.date}</li>
       <li>Time: {this.state.booking.time}</li>
       <li>Number Of People: {this.state.booking.headCount}</li>
+      <li>Ordered items: {this.state.booking.orderedItems}</li>
       <button onClick={this.handleDelete}>Delete Booking</button>
     </ul>
     <BookingAddItemForm booking={this.state.booking} handleOrderedItemPost={this.handleOrderedItemPost} />
