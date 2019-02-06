@@ -16,6 +16,7 @@ export default class Booking extends Component {
     };
 
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleOrderedItemPost = this.handleOrderedItemPost.bind(this);
   }
 
   handleDelete(){
@@ -29,6 +30,9 @@ export default class Booking extends Component {
   handleOrderedItemPost(orderedItem){
     let request = new Request();
     request.post('/orderedItems', orderedItem).then(() => {
+      const dummyArray = this.state.orderedItems;
+      dummyArray.push(orderedItem);
+      this.setState({orderedItems: dummyArray});
     })
   }
 
