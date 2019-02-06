@@ -20,13 +20,33 @@ class BookingsContainer extends Component {
   componentDidMount() {
     let request = new Request()
     request.get('tables').then(data => {
-      this.setState({ tables: data._embedded.tables });
-
+      this.setState({ tables: data._embedded.tables, date: this.createDateString() });
     })
   }
 
+  createDateString() {
+    const today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1; //January is 0!
+    let yyyy = today.getFullYear();
+
+    if (dd < 10) {
+      dd = '0' + dd;
+    }
+
+    if (mm < 10) {
+      mm = '0' + mm;
+    }
+
+    return (yyyy + '-' + mm + '-' + dd);
+  }
+
   dateHandler(selectedDate) {
-    this.setState({ date: selectedDate });
+    if (selectedDate !== "") {
+      this.setState({ date: selectedDate });
+    } else {
+    this.setState({ date: this.state.date})
+    }
   }
 
 
@@ -34,7 +54,7 @@ class BookingsContainer extends Component {
     return (
       <Fragment>
         <h1>Bookings</h1>
-        <BookingDatePicker updateContainer={this.dateHandler} />
+        <BookingDatePicker updateContainer={this.dateHandler} dateDisplay={this.state.date}/>
         <table>
           <BookingTableHeader />
           <BookingTable tables={this.state.tables} date={this.state.date} />

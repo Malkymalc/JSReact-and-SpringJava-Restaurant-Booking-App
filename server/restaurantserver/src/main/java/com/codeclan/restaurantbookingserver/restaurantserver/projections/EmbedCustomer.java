@@ -1,8 +1,6 @@
 package com.codeclan.restaurantbookingserver.restaurantserver.projections;
 
-import com.codeclan.restaurantbookingserver.restaurantserver.models.Booking;
-import com.codeclan.restaurantbookingserver.restaurantserver.models.Customer;
-import com.codeclan.restaurantbookingserver.restaurantserver.models.Table;
+import com.codeclan.restaurantbookingserver.restaurantserver.models.*;
 import org.springframework.data.rest.core.config.Projection;
 
 import java.util.List;
@@ -16,4 +14,7 @@ public interface EmbedCustomer {
     Customer getCustomer();
     int getHeadCount();
     Table getTable();
+    List<ReceiptItem> getReceiptItems();
+    List<OrderedItem> getOrderedItems();
+
 }
