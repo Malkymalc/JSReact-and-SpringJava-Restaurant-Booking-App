@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 
 export default class BookingRow extends Component {
 
+  constructor(props){
+    super(props);
+    this.handleClickOpen = this.handleClickOpen.bind(this);
+  }
+
   generateBookingTimes() {
     let bookingHash = {};
     if (this.props.table._embedded) {
@@ -15,8 +20,8 @@ export default class BookingRow extends Component {
     return bookingHash;
   }
 
-  test(data){
-    window.location = "/bookings/" + data.target.title;
+  handleClickOpen(event){
+    this.props.handleClick(event.target);
   }
 
   render() {
@@ -37,7 +42,7 @@ export default class BookingRow extends Component {
         cName = "free";
         contentURL = "new"
       }
-      tableElements.push(<td className={cName} key={i} onClick={this.test} title={contentURL}><a href = {contentURL}>{covers}</a></td>);
+      tableElements.push(<td className={cName} tablenumber={this.props.table.tableNumber} time={stringTime} date={this.props.date} key={i} onClick={this.handleClickOpen} title={contentURL}></td>);
     }
 
     return (

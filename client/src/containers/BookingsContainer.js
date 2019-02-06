@@ -3,6 +3,7 @@ import BookingsList from '../components/bookings/BookingsList.js';
 import BookingTableHeader from '../components/bookings/BookingTableHeader.js';
 import BookingTable from '../components/bookings/BookingTable.js';
 import BookingDatePicker from '../components/bookings/BookingDatePicker.js'
+import BookingFormModal from '../components/bookings/BookingFormModal.js'
 import Request from '../helpers/requestHelper.js';
 
 
@@ -11,10 +12,12 @@ class BookingsContainer extends Component {
     super(props);
     this.state = {
       tables: [],
-      date: null
+      date: null,
+      open: false,
     }
 
     this.dateHandler = this.dateHandler.bind(this);
+    this.openForm = this.openForm.bind(this);
   }
 
   componentDidMount() {
@@ -22,6 +25,11 @@ class BookingsContainer extends Component {
     request.get('tables').then(data => {
       this.setState({ tables: data._embedded.tables, date: this.createDateString() });
     })
+  }
+
+  openForm(data){
+    this.setState({open: true});
+    console.log(this.state.open);
   }
 
   createDateString() {
@@ -54,10 +62,11 @@ class BookingsContainer extends Component {
     return (
       <Fragment>
         <h1>Bookings</h1>
+        <BookingFormModal openForm={this.state.open}/>
         <BookingDatePicker updateContainer={this.dateHandler} dateDisplay={this.state.date}/>
         <table>
           <BookingTableHeader />
-          <BookingTable tables={this.state.tables} date={this.state.date} />
+          <BookingTable tables={this.state.tables} date={this.state.date} handleClick={this.openForm}/>
         </table>
       </Fragment>
     );

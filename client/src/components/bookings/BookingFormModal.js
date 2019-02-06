@@ -17,7 +17,7 @@ class BookingFormModal extends Component {
     let { customer, id, firstName, lastName, telephone, discount, time, date, headCount, tables} = this.props;
 
     this.state = {
-      open: false,
+      open: this.props.openForm,
       existingCustomers: [],
       customer: null,
       id,
@@ -33,6 +33,7 @@ class BookingFormModal extends Component {
   }
 
   componentDidMount(){
+    console.log(this.state.open);
     const request = new Request()
     request.get('/customers').then(data =>{
       this.setState({existingCustomers: data._embedded.customers})
@@ -85,9 +86,7 @@ class BookingFormModal extends Component {
 
     return (
       <div>
-        <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
-          Open form dialog
-        </Button>
+        <h2>Hi!</h2>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
