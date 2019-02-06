@@ -45,16 +45,20 @@ class App extends Component {
         <Router>
           <Fragment>
             <Header links={this.state.links} />
-            <Switch>
-              <Route exact path="/bookings" component={BookingsContainer} />
-              <Route exact path="/customers" component={CustomersContainer} />
-              <Route exact path="/customers/new" component={CustomersForm} />
-              <Route exact path="/customers/:id" component={Customer} />
-              <Route exact path="/reports" component={ReportsContainer} />
-              <Route exact path="/admin" component={AdminContainer} />
-              <Route exact path="/bookings/new" component={BookingFormContainer} />
-              <Route exact path="/bookings/:id" component={Booking} />
-            </Switch>
+            <div className="content-body-background">
+              <div className="content-body">
+                <Switch>
+                  <Route exact path="/bookings" component={BookingsContainer} />
+                  <Route exact path="/customers" component={CustomersContainer} />
+                  <Route exact path="/customers/new" component={CustomersForm} />
+                  <Route exact path="/customers/:id" component={Customer} />
+                  <Route exact path="/reports" component={ReportsContainer} />
+                  <Route exact path="/admin" component={AdminContainer} />
+                  <Route exact path="/bookings/new" component={BookingFormContainer} />
+                  <Route exact path="/bookings/:id" component={Booking} />
+                </Switch>
+              </div>
+            </div>
             <Footer />
           </Fragment>
         </Router>
