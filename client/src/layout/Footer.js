@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => (
     <>
-        <footer>Footer placeholder</footer>
+        <footer><marquee>Update: Free website hosting on Geocities!</marquee></footer>
     </>
 )
 
