@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Header from './layout/Header.js'
+import Footer from './layout/Footer.js'
 import AdminContainer from './containers/AdminContainer.js'
 import BookingsContainer from './containers/BookingsContainer.js'
 import CustomersContainer from './containers/CustomersContainer.js'
@@ -12,7 +13,7 @@ import Booking from './components/bookings/Booking.js';
 
 class App extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       links: [
@@ -25,21 +26,13 @@ class App extends Component {
           name: 'Customers'
         },
         {
-          url: '/tables',
-          name: 'Tables'
-        },
-        {
           url: '/reports',
           name: 'Reports'
         },
         {
           url: '/admin',
           name: 'Admin'
-        },
-        {
-          url: '/bookings/new',
-          name: 'addBooking'
-        },
+        }
       ]
     }
   }
@@ -50,16 +43,20 @@ class App extends Component {
       <div>
         <Router>
           <Fragment>
-            <Header links={this.state.links}/>
-            <Switch>
-              <Route exact path="/bookings" component={BookingsContainer} />
-              <Route exact path="/customers" component={CustomersContainer} />
-              <Route exact path="/tables" component={TablesContainer} />
-              <Route exact path="/reports" component={ReportsContainer} />
-              <Route exact path="/admin" component={AdminContainer} />
-              <Route exact path="/bookings/new" component={BookingFormContainer} />
-              <Route exact path="/bookings/:id" component={Booking} />
-            </Switch>
+            <Header links={this.state.links} />
+            <div className="content-body-background">
+              <div className="content-body">
+                <Switch>
+                  <Route exact path="/bookings" component={BookingsContainer} />
+                  <Route exact path="/customers" component={CustomersContainer} />
+                  <Route exact path="/reports" component={ReportsContainer} />
+                  <Route exact path="/admin" component={AdminContainer} />
+                  <Route exact path="/bookings/new" component={BookingFormContainer} />
+                  <Route exact path="/bookings/:id" component={Booking} />
+                </Switch>
+              </div>
+            </div>
+            <Footer />
           </Fragment>
         </Router>
       </div>
