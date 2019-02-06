@@ -14,10 +14,9 @@ class BookingFormModal extends Component {
 
   constructor(props){
     super(props);
-    let { customer, id, firstName, lastName, telephone, discount, time, date, headCount, tables} = this.props;
+    let { customer, id, firstName, lastName, telephone, discount, time, date, headCount, table} = this.props;
 
     this.state = {
-      open: this.props.openForm,
       existingCustomers: [],
       customer: null,
       id,
@@ -26,14 +25,17 @@ class BookingFormModal extends Component {
       telephone,
       discount,
       time,
-      date,
+      date: this.props.date,
       headCount,
-      tables: []
+      table
     };
+
+    this.handleClose = this.handleClose.bind(this);
   }
 
   componentDidMount(){
     console.log(this.state.open);
+    console.log(this.props.date);
     const request = new Request()
     request.get('/customers').then(data =>{
       this.setState({existingCustomers: data._embedded.customers})
@@ -45,7 +47,7 @@ class BookingFormModal extends Component {
   };
 
   handleClose = () => {
-    this.setState({ open: false });
+    this.props.closeForm();
   };
 
   handleChange = input => e => {
@@ -69,9 +71,9 @@ class BookingFormModal extends Component {
 
   addBooking = () => {
     console.log('Last name is :', this.state.lastName);
+    console.log(this.state);
     // POST requests as necessary to backend to add customer --> booking --> table(s) using state data above
-    this.handleClose();
-    // Trigger refresh of bookings page - booking should now show
+    // this.handleClose();
   }
 
 
@@ -81,14 +83,14 @@ class BookingFormModal extends Component {
 
   render() {
     const { firstName, lastName, telephone, discount } = this.state;
-    const { time, date, headCount, tables, existingCustomers } = this.state;
-    const values = { firstName, lastName, telephone, discount, time, date, headCount, tables, existingCustomers };
+    const { time, date, headCount, table, existingCustomers } = this.state;
+    const values = { firstName, lastName, telephone, discount, time: this.props.time, date: this.props.date, headCount, table: this.props.table, existingCustomers };
 
+    console.log(this.props.date);
     return (
       <div>
-        <h2>Hi!</h2>
         <Dialog
-          open={this.state.open}
+          open={this.props.openForm}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
 

@@ -10,7 +10,7 @@ class ModalBookingForm extends Component {
 
     return (
       <Fragment >
-        <p>Hello</p>
+        <p></p>
         <TextField
           select
           value={ values.customer ? values.customer.firstName : 'Choose Customer'}
@@ -24,55 +24,59 @@ class ModalBookingForm extends Component {
           ))}
         </TextField>
 
-        <p>Hello</p>
+        <p></p>
         <TextField
           label="First Name"
           onChange={handleChange('firstName')}
           defaultValue={values.firstName}
+          required
         />
-        <p>Hello</p>
+        <p></p>
         <TextField
           label='Last Name'
           onChange={handleChange('lastName')}
           defaultValue={values.lastName}
         />
-        <p>Hello</p>
+        <p></p>
         <TextField
           label='Telephone'
           onChange={handleChange('telephone')}
           defaultValue={values.telephone}
         />
-        <p>Hello</p>
+        <p></p>
         <TextField
           label='Discount'
           onChange={handleChange('discount')}
           defaultValue={values.discount}
         />
-
-        <p>Hello</p>
-        <TextField
-          label='time'
-          onChange={handleChange('time')}
-          defaultValue={values.time}
-        />
-        <p>Hello</p>
-        <TextField
-          label='date'
-          onChange={handleChange('date')}
-          defaultValue={values.date}
-        />
-        <p>Hello</p>
+        <p></p>
         <TextField
           label='headCount'
           onChange={handleChange('headCount')}
           defaultValue={values.telephone}
         />
-        <p>Hello</p>
+
+        <p></p>
         <TextField
-          label='Discount'
-          onChange={handleChange('discount')}
-          defaultValue={values.discount}
+          label='time'
+          onChange={handleChange('time')}
+          defaultValue={values.time}
+          InputProps={{readOnly: true}}
         />
+        <p></p>
+        <TextField
+          label='date'
+          defaultValue={values.date}
+          InputProps={{readOnly: true}}
+        />
+        <p></p>
+        <TextField
+          label='table'
+          onChange={handleChange('headCount')}
+          defaultValue={values.table.tableNumber}
+          InputProps={{readOnly: true}}
+        />
+        <p></p>
 
           </Fragment>
           );

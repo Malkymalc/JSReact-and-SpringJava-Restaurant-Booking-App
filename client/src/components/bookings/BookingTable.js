@@ -15,7 +15,7 @@ export default class BookingTable extends Component {
   render(){
     if (!this.props.date) {return null;}
     const tableRows = this.props.tables.map((table, index) => {
-      return <BookingRow table={table} key={index} date={this.props.date} handleClick={this.handleClick}/>
+      return <BookingRow table={table} tableindex={index} key={index} date={this.props.date} handleClick={this.handleClick}/>
     })
 
   return(

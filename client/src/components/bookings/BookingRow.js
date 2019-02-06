@@ -21,6 +21,7 @@ export default class BookingRow extends Component {
   }
 
   handleClickOpen(event){
+    console.log(event.target);
     this.props.handleClick(event.target);
   }
 
@@ -42,7 +43,7 @@ export default class BookingRow extends Component {
         cName = "free";
         contentURL = "new"
       }
-      tableElements.push(<td className={cName} tablenumber={this.props.table.tableNumber} time={stringTime} date={this.props.date} key={i} onClick={this.handleClickOpen} title={contentURL}></td>);
+      tableElements.push(<td className={cName} table={this.props.tableindex} time={stringTime} date={this.props.date} key={i} onClick={this.handleClickOpen} title={contentURL}></td>);
     }
 
     return (

@@ -14,10 +14,13 @@ class BookingsContainer extends Component {
       tables: [],
       date: null,
       open: false,
+      tableindex: 0,
+      time: "",
     }
 
     this.dateHandler = this.dateHandler.bind(this);
     this.openForm = this.openForm.bind(this);
+    this.closeForm = this.closeForm.bind(this);
   }
 
   componentDidMount() {
@@ -28,8 +31,12 @@ class BookingsContainer extends Component {
   }
 
   openForm(data){
-    this.setState({open: true});
-    console.log(this.state.open);
+    this.setState({open: true, tableindex: parseInt(data.attributes.table.value), time: data.attributes.time.value});
+    console.log(this.state);
+  }
+
+  closeForm(data){
+    this.setState({open: false});
   }
 
   createDateString() {
@@ -62,12 +69,12 @@ class BookingsContainer extends Component {
     return (
       <Fragment>
         <h1>Bookings</h1>
-        <BookingFormModal openForm={this.state.open}/>
         <BookingDatePicker updateContainer={this.dateHandler} dateDisplay={this.state.date}/>
         <table>
           <BookingTableHeader />
           <BookingTable tables={this.state.tables} date={this.state.date} handleClick={this.openForm}/>
         </table>
+        <BookingFormModal openForm={this.state.open} closeForm={this.closeForm} date={this.state.date} table={this.state.tables[this.state.tableindex]} time={this.state.time}/>
       </Fragment>
     );
   }
