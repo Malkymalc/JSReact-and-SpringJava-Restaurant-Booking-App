@@ -1,5 +1,6 @@
 package com.codeclan.restaurantbookingserver.restaurantserver.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
@@ -27,6 +28,7 @@ public class Booking implements Serializable {
     @Column(name = "headCount")
     private int headCount;
 
+    @JsonIgnoreProperties("bookings")
     @ManyToOne
     @Cascade(org.hibernate.annotations.CascadeType.DETACH)
     @JoinColumn(name = "customer_id", nullable = false)

@@ -1,7 +1,6 @@
 import React from 'react'
 
 const BookingForm = (props) => {
-  console.log(props);
 
   const customerOptions = props.customer.map((customer) => {
     return <option key={customer.id} value={customer._links.self.href}>{customer.lastName}</option>
