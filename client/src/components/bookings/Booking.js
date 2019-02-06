@@ -11,7 +11,8 @@ export default class Booking extends Component {
     this.state = {
       id: this.props.match.params.id,
       booking: [],
-      customer: []
+      customer: [],
+      orderedItems: []
     };
 
     this.handleDelete = this.handleDelete.bind(this);
@@ -26,7 +27,6 @@ export default class Booking extends Component {
   }
 
   handleOrderedItemPost(orderedItem){
-    console.log(orderedItem);
     let request = new Request();
     request.post('/orderedItems', orderedItem).then(() => {
     })
@@ -36,8 +36,9 @@ export default class Booking extends Component {
     let request = new Request()
     const url = `${this.props.match.params.id}` + "?projection=embedCustomer";
     request.get(url).then(data => {
-      this.setState({booking: data, customer: data.customer});
+      this.setState({booking: data, customer: data.customer, orderedItems: data.orderedItems});
     })
+
   }
 
   render(){
@@ -48,7 +49,7 @@ export default class Booking extends Component {
       <li>Date: {this.state.booking.date}</li>
       <li>Time: {this.state.booking.time}</li>
       <li>Number Of People: {this.state.booking.headCount}</li>
-      <li>Ordered items: {this.state.booking.orderedItems}</li>
+      <li>Ordered items: {this.state.orderedItems.length}</li>
       <button onClick={this.handleDelete}>Delete Booking</button>
     </ul>
     <BookingAddItemForm booking={this.state.booking} handleOrderedItemPost={this.handleOrderedItemPost} />

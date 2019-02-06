@@ -44,7 +44,7 @@ class BookingAddItemForm extends Component {
       {itemOptions}
       </select>
 
-      <button type="submit">Save</button>
+      <button type="submit">Add order</button>
       </form>
     )}
   }
