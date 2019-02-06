@@ -12,9 +12,9 @@ const CustomersList = (props) => {
         customer={customer}
         customerId={customer.id}
         key={index}
-      />
-    );
-  })
+        />
+        );
+        })
 
   return (
     <Fragment>
