@@ -21,7 +21,6 @@ class BookingsContainer extends Component {
     let request = new Request()
     request.get('tables').then(data => {
       this.setState({ tables: data._embedded.tables, date: this.createDateString() });
-      console.log(this.state.date);
     })
   }
 
