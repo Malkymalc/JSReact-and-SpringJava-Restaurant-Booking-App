@@ -20,7 +20,7 @@ const BookingForm = (props) => {
     const booking = {
       "date": event.target.date.value,
       "time": event.target.time.value,
-      "headcount": event.target.headcount.value,
+      "headCount": event.target.headcount.value,
       "customer": event.target.customer.value,
       "table": event.target.table.value
     }

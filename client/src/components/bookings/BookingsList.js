@@ -7,7 +7,7 @@ const BookingsList = (props) => {
     return (
       <Booking
         booking={booking}
-        index={index}
+        key={index}
       />
     );
   })

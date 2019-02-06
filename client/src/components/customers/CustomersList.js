@@ -8,18 +8,17 @@ const CustomersList = (props) => {
     return (
       <Customer
         customer={customer}
-        index={index}
         key={index}
-      />
-    );
-  })
+        />
+        );
+        })
 
-  return (
-    <Fragment>
-      <CustomerTableHeader/>
-      { customers }
-    </Fragment>
-  );
-}
+        return (
+        <Fragment>
+          <CustomerTableHeader/>
+          { customers }
+        </Fragment>
+        );
+        }
 
 export default CustomersList;

@@ -6,11 +6,17 @@ export default class BookingRow extends Component {
     let bookingHash = {};
     if (this.props.table._embedded) {
       this.props.table._embedded.bookings.forEach((booking) => {
+        if(booking.date == this.props.date){
         bookingHash[booking.time] = booking.id;
+      }
       })
     }
 
     return bookingHash;
+  }
+
+  test(data){
+    window.location = "/bookings/" + data.target.title;
   }
 
   render() {
@@ -19,18 +25,19 @@ export default class BookingRow extends Component {
     const tableElements = [];
 
     for (let i = 10; i < 22; i++) {
-      const stringTime = i + ":00:00";
-      let cName = "";
-      let content;
+      const stringTime = i + ":00";
+      let cName;
+      let contentURL;
+      let covers;
       if (Object.keys(timesBooked).includes(stringTime)) {
         cName = "booked";
         const linkID = timesBooked[stringTime];
-        content = <a href={"http://localhost:3000/bookings/" + linkID}><b>Booked</b></a>;
+        contentURL = `${linkID}`
       } else {
         cName = "free";
-        content = ""
+        contentURL = "new"
       }
-      tableElements.push(<td className={cName} key={i}>{content}</td>);
+      tableElements.push(<td className={cName} key={i} onClick={this.test} title={contentURL}><a href = {contentURL}>{covers}</a></td>);
     }
 
     return (

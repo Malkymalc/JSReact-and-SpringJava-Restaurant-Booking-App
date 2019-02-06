@@ -22,13 +22,16 @@ public class Table implements Serializable {
     @Column(name = "seatCount")
     private int seatCount;
 
-    @JsonIgnoreProperties("tables")
-    @ManyToMany
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JoinTable(
-            joinColumns = {@JoinColumn(name = "table_id", nullable = false, updatable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "booking_id", nullable = false, updatable = false)}
-    )
+//    @JsonIgnoreProperties("tables")
+//    @ManyToMany
+//    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+//    @JoinTable(
+//            joinColumns = {@JoinColumn(name = "table_id", nullable = false, updatable = false)},
+//            inverseJoinColumns = {@JoinColumn(name = "booking_id", nullable = false, updatable = false)}
+//    )
+
+    @OneToMany(mappedBy = "table")
+    @Cascade(org.hibernate.annotations.CascadeType.REMOVE)
     private List<Booking> bookings;
 
     public Table(String tableNumber, int seatCount) {
