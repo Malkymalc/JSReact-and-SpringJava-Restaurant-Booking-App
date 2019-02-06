@@ -27,6 +27,7 @@ class CustomersContainer extends Component {
   render(){
     return (
       <Fragment>
+      <h1>Customers</h1>
       <CustomersHeader/>
       <table>
         <CustomersList customers={this.state.customers}/>

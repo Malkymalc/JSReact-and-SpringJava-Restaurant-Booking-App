@@ -32,6 +32,7 @@ export default class ReceiptsContainer extends Component {
 
   return (
     <>
+    <h1>Receipts</h1>
     Select Customer:
     <select onChange={this.handleSelect} name="customer">
     {customerElements}

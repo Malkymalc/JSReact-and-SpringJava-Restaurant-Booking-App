@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Header from './layout/Header.js';
 import Footer from './layout/Footer.js';
-import AdminContainer from './containers/AdminContainer.js';
 import BookingsContainer from './containers/BookingsContainer.js';
 import CustomersContainer from './containers/CustomersContainer.js';
 import CustomersForm from './components/customers/CustomersForm.js';
@@ -30,10 +29,6 @@ class App extends Component {
           url: '/receipts',
           name: 'Receipts'
         },
-        {
-          url: '/admin',
-          name: 'Admin'
-        }
       ]
     }
   }
@@ -53,7 +48,6 @@ class App extends Component {
                   <Route exact path="/customers/new" component={CustomersForm} />
                   <Route exact path="/customers/:id" component={Customer} />
                   <Route exact path="/receipts" component={ReceiptsContainer} />
-                  <Route exact path="/admin" component={AdminContainer} />
                   <Route exact path="/bookings/new" component={BookingFormContainer} />
                   <Route exact path="/bookings/:id" component={Booking} />
                 </Switch>
