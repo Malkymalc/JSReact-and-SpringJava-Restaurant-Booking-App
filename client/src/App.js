@@ -8,7 +8,7 @@ import BookingsContainer from './containers/BookingsContainer.js';
 import CustomersContainer from './containers/CustomersContainer.js';
 import CustomersForm from './components/customers/CustomersForm.js';
 import Customer from './components/customers/Customer.js';
-import ReportsContainer from './containers/ReportsContainer.js';
+import ReceiptsContainer from './containers/ReceiptsContainer.js';
 import BookingFormContainer from './containers/BookingFormContainer.js';
 import Booking from './components/bookings/Booking.js';;
 
@@ -27,8 +27,8 @@ class App extends Component {
           name: 'Customers'
         },
         {
-          url: '/reports',
-          name: 'Reports'
+          url: '/receipts',
+          name: 'Receipts'
         },
         {
           url: '/admin',
@@ -52,7 +52,7 @@ class App extends Component {
                   <Route exact path="/customers" component={CustomersContainer} />
                   <Route exact path="/customers/new" component={CustomersForm} />
                   <Route exact path="/customers/:id" component={Customer} />
-                  <Route exact path="/reports" component={ReportsContainer} />
+                  <Route exact path="/receipts" component={ReceiptsContainer} />
                   <Route exact path="/admin" component={AdminContainer} />
                   <Route exact path="/bookings/new" component={BookingFormContainer} />
                   <Route exact path="/bookings/:id" component={Booking} />
