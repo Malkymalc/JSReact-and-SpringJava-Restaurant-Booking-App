@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import CustomersList from '../components/customers/CustomersList.js';
+import CustomersHeader from '../components/customers/CustomersHeader.js';
 import Request from '../helpers/requestHelper.js';
 
 
@@ -25,7 +26,12 @@ class CustomersContainer extends Component {
 
   render(){
     return (
+      <Fragment>
+      <CustomersHeader/>
+      <table>
         <CustomersList customers={this.state.customers}/>
+      </table>
+      </Fragment>
     );
   }
 }
