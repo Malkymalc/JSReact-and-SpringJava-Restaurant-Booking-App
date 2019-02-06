@@ -14,11 +14,12 @@ class BookingFormModal extends Component {
 
   constructor(props){
     super(props);
-    let { id, firstName, lastName, telephone, discount, time, date, headCount, tables} = this.props;
+    let { customer, id, firstName, lastName, telephone, discount, time, date, headCount, tables} = this.props;
 
     this.state = {
       open: false,
       existingCustomers: [],
+      customer: null,
       id,
       firstName,
       lastName,
@@ -29,6 +30,13 @@ class BookingFormModal extends Component {
       headCount,
       tables: []
     };
+  }
+
+  componentDidMount(){
+    const request = new Request()
+    request.get('/customers').then(data =>{
+      this.setState({existingCustomers: data._embedded.customers})
+    })
   }
 
   handleClickOpen = () => {
@@ -47,9 +55,15 @@ class BookingFormModal extends Component {
   }
 
   handleCustomerSelect = e => {
-    const customerIndex = e.target.value;
-    const customerSelected = this.state.existingCustomers[customerIndex];
-    this.setState({customer: customerSelected});
+    const customerId = e.target.value;
+    console.log(this.state.existingCustomers);
+    console.log(customerId);
+    const customerSelected = this.state.existingCustomers
+    .filter(customer => customer.id === customerId)[0];
+    console.log(customerSelected);
+    this.setState({customer: customerSelected}, () => {
+      console.log('the customer is: ', this.state.customer)
+    })
   }
 
   addBooking = () => {
@@ -60,12 +74,7 @@ class BookingFormModal extends Component {
   }
 
 
-  componentDidMount(){
-    const request = new Request()
-    request.get('/customers').then(data =>{
-      this.setState({existingCustomers: data._embedded.customers})
-    })
-  }
+
 
 
 

@@ -13,7 +13,7 @@ class ModalBookingForm extends Component {
         <p>Hello</p>
         <TextField
           select
-          value={(values.firstName + values.lastName) || 'Choose Customer'}
+          value={ values.customer ? values.customer.firstName : 'Choose Customer'}
           onChange={handleCustomerSelect}
           helperText="Select Customer"
         >
