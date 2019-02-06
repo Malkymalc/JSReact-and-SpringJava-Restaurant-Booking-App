@@ -22,7 +22,11 @@ export default class BookingRow extends Component {
 
   handleClickOpen(event){
     console.log(event.target);
-    this.props.handleClick(event.target);
+    if (event.target.className==="free"){
+    this.props.handleClick(event.target);}
+    else {
+      window.location = "bookings/" + event.target.title
+    }
   }
 
   render() {
