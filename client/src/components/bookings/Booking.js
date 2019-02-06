@@ -1,6 +1,7 @@
 import React, { Fragment, Component } from 'react';
 import { Link } from 'react-router-dom';
 import Request from '../../helpers/requestHelper.js';
+import BookingAddItemForm from './BookingAddItemForm.js';
 
 export default class Booking extends Component {
 
@@ -24,12 +25,18 @@ export default class Booking extends Component {
     })
   }
 
+  handleOrderedItemPost(orderedItem){
+    console.log(orderedItem);
+    let request = new Request();
+    request.post('/orderedItems', orderedItem).then(() => {
+    })
+  }
+
   componentDidMount(){
     let request = new Request()
     const url = `${this.props.match.params.id}` + "?projection=embedCustomer";
     request.get(url).then(data => {
       this.setState({booking: data, customer: data.customer});
-      console.log(this.state.customer);
     })
   }
 
@@ -43,6 +50,7 @@ export default class Booking extends Component {
       <li>Number Of People: {this.state.booking.headCount}</li>
       <button onClick={this.handleDelete}>Delete Booking</button>
     </ul>
+    <BookingAddItemForm booking={this.state.booking} handleOrderedItemPost={this.handleOrderedItemPost} />
     </Fragment>
   );
 }
