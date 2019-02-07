@@ -6,6 +6,7 @@ class BookingAddReceiptForm extends Component {
     super(props);
     this.state = {
       stockItems: [],
+      orderedItems: this.props.order
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,19 +19,26 @@ class BookingAddReceiptForm extends Component {
     })
   }
 
-
-
-
-
-
   handleSubmit(event){
     event.preventDefault()
+    // const arrayOfReceipts = [];
+    // this.state.stockItems.forEach(item){
+    //   const receiptItem = {
+    //     "name": item.name,
+    //     "price": item.price,
+    //     "booking": this.props.booking._links.self.href
+    //   }
+    //   arrayOfReceipts.push(receiptItem);
+    // }
+    console.log(this.state.orderedItems);
     const receiptItem = {
       "name": this.state.stockItems[0].name,
-      "price": event.target.stockItem.value,
+      "price": this.state.stockItems[0].price,
       "booking": this.props.booking._links.self.href
     }
     this.props.handleReceiptItemPost(receiptItem);
+    this.refs.btn.setAttribute("disabled", "disabled");
+    // this.props.handleReceiptItemPost(arrayOfReceipts);
   }
 
   render(){
@@ -38,7 +46,7 @@ class BookingAddReceiptForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
 
-      <button type="submit">Pay order</button>
+      <button ref="btn" type="submit">Pay order</button>
       </form>
     )}
   }

@@ -18,11 +18,6 @@ class BookingAddItemForm extends Component {
     })
   }
 
-
-
-
-
-
   handleSubmit(event){
     event.preventDefault()
     const orderedItem = {

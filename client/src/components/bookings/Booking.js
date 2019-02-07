@@ -2,6 +2,7 @@ import React, { Fragment, Component } from 'react';
 import { Link } from 'react-router-dom';
 import Request from '../../helpers/requestHelper.js';
 import BookingAddItemForm from './BookingAddItemForm.js';
+import BookingAddReceiptForm from './BookingAddReceiptForm.js';
 
 export default class Booking extends Component {
 
@@ -17,6 +18,7 @@ export default class Booking extends Component {
 
     this.handleDelete = this.handleDelete.bind(this);
     this.handleOrderedItemPost = this.handleOrderedItemPost.bind(this);
+    this.handleReceiptItemPost = this.handleReceiptItemPost.bind(this);
   }
 
   handleDelete(){
@@ -33,6 +35,13 @@ export default class Booking extends Component {
       const dummyArray = this.state.orderedItems;
       dummyArray.push(orderedItem);
       this.setState({orderedItems: dummyArray});
+    })
+  }
+
+  handleReceiptItemPost(receiptItem){
+    let request = new Request();
+    request.post('/receiptItems', receiptItem).then(() => {
+
     })
   }
 
@@ -57,6 +66,7 @@ export default class Booking extends Component {
       <button onClick={this.handleDelete}>Delete Booking</button>
     </ul>
     <BookingAddItemForm booking={this.state.booking} handleOrderedItemPost={this.handleOrderedItemPost} />
+    <BookingAddReceiptForm booking={this.state.booking} order={this.state.orderedItems} handleReceiptItemPost={this.handleReceiptItemPost} />
     </Fragment>
   );
 }
