@@ -151,6 +151,12 @@ th {
   color: #757575;
 }
 
+.customer ul, .customer li {
+  font-size: 17px;
+  font-weight: bold;
+  color: #757575;
+}
+
 td {
   font-size: 10px;
   font-weight: bold;

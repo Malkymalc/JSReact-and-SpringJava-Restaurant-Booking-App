@@ -21,7 +21,7 @@ export default class Customer extends Component{
   return (
     <Fragment>
     <h2>Customer</h2>
-    <ul>
+    <ul className = "customer">
       <li>First Name: {this.state.customer.firstName}</li>
       <li>Surname: {this.state.customer.lastName}</li>
       <li>Discount: {this.state.customer.discount}%</li>

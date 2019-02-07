@@ -58,7 +58,7 @@ export default class Booking extends Component {
   return (
     <Fragment>
     <h2>Booking</h2>
-    <ul>
+    <ul className="customer">
       <li>Customer: {this.state.customer.firstName} {this.state.customer.lastName}</li>
       <li>Date: {this.state.booking.date}</li>
       <li>Time: {this.state.booking.time}</li>
