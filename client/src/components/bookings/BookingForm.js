@@ -10,9 +10,9 @@ const BookingForm = (props) => {
     return <option key={table.id} value={table._links.self.href}>{table.tableNumber}</option>
   })
 
-  // const timeOptions = props.timeSlots.map(time, index) => {
-  //   return <option key={index} value={time}>{customer.lastName}</option>
-  // })
+  const timeOptions = props.times.map((time, index) => {
+    return <option key={index}>{time}</option>
+  })
 
   function handleSubmit(event){
     event.preventDefault()
@@ -29,14 +29,19 @@ const BookingForm = (props) => {
   return (
     <form onSubmit={handleSubmit}>
     <input type="date" placeholder="date" name="date"/>
-    <input type="string" placeholder="time" name="time"/>
-    <input type="number" placeholder="headcount" name="headcount"/>
+
+    <select name="time">
+    {timeOptions}
+    </select>
+
+    <input type="number" placeholder="headcount" name="headcount" min="1" max="4"/>
+
     <select name="customer">
-      {customerOptions}
+    {customerOptions}
     </select>
 
     <select name="table">
-      {tableOptions}
+    {tableOptions}
     </select>
 
     <button type="submit">Save</button>

@@ -26,13 +26,6 @@ class BookingFormContainer extends Component {
     })
   }
 
-  // componentDidMount(){
-  //   const request = new Request()
-  //   request.get('/tables').then(data =>{
-  //     this.setState({tables: data._embedded.tables})
-  //   })
-  // }
-
   handleBookingPost(booking){
     const request = new Request();
     request.post('/bookings', booking).then(() => {
@@ -50,7 +43,7 @@ class BookingFormContainer extends Component {
 
   render(){
     return (
-      <BookingForm customer={this.state.customers} table={this.state.tables} handleBookingPost={this.handleBookingPost} />
+      <BookingForm customer={this.state.customers} table={this.state.tables} times={this.state.timeSlots} handleBookingPost={this.handleBookingPost} />
     )
   }
 
