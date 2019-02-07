@@ -164,11 +164,11 @@ td {
   border-right-color: #eeeeee;
 }
 
-a {
+.header a {
   text-decoration-line: none;
   color: white;
 }
 
-a :visited {
+.header a :visited {
   color: white;
 }
