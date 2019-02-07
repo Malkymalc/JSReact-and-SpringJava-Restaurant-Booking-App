@@ -6,6 +6,7 @@ class BookingAddReceiptForm extends Component {
     super(props);
     this.state = {
       stockItems: [],
+      orderedItems: this.props.order
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,6 +30,7 @@ class BookingAddReceiptForm extends Component {
     //   }
     //   arrayOfReceipts.push(receiptItem);
     // }
+    console.log(this.state.orderedItems);
     const receiptItem = {
       "name": this.state.stockItems[0].name,
       "price": this.state.stockItems[0].price,

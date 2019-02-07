@@ -66,7 +66,7 @@ export default class Booking extends Component {
       <button onClick={this.handleDelete}>Delete Booking</button>
     </ul>
     <BookingAddItemForm booking={this.state.booking} handleOrderedItemPost={this.handleOrderedItemPost} />
-    <BookingAddReceiptForm booking={this.state.booking} handleReceiptItemPost={this.handleReceiptItemPost} />
+    <BookingAddReceiptForm booking={this.state.booking} order={this.state.orderedItems} handleReceiptItemPost={this.handleReceiptItemPost} />
     </Fragment>
   );
 }
