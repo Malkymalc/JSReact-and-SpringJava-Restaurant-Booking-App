@@ -21,6 +21,7 @@ export default class Customer extends Component{
   render(){
   return (
     <Fragment>
+    <h2>Customer</h2>
     <ul>
       <li>First Name: {this.state.customer.firstName}</li>
       <li>Surname: {this.state.customer.lastName}</li>
