@@ -98,7 +98,7 @@ class BookingFormModal extends Component {
   render() {
     const { firstName, lastName, telephone, discount } = this.state;
     const { time, date, headCount, table, existingCustomers } = this.state;
-    const values = { firstName, lastName, telephone, discount, time: this.props.time, date: this.props.date, headCount, table: this.props.table, existingCustomers };
+    const values = { firstName, lastName, telephone, discount, time: this.props.time, date: this.props.date, headCount, table: this.props.table, existingCustomers, customer: this.state.customer };
 
     console.log(this.props.date);
     return (
