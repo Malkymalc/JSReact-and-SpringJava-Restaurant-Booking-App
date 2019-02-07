@@ -36,8 +36,6 @@ class BookingFormModal extends Component {
   }
 
   componentDidMount(){
-    console.log(this.state.open);
-    console.log(this.props.date);
     const request = new Request()
     request.get('/customers').then(data =>{
       this.setState({existingCustomers: data._embedded.customers})
@@ -53,27 +51,17 @@ class BookingFormModal extends Component {
   };
 
   handleChange = input => e => {
-    console.log(e.target.value);
-    console.log(input);
     this.setState({[input]: e.target.value})
-    console.log(this.state[input]);
   }
 
   handleCustomerSelect = e => {
     const customerId = e.target.value;
-    console.log(this.state.existingCustomers);
-    console.log(customerId);
     const customerSelected = this.state.existingCustomers
     .filter(customer => customer.id === customerId)[0];
-    console.log(customerSelected);
-    this.setState({customer: customerSelected}, () => {
-      console.log('the customer is: ', this.state.customer)
-    })
+    this.setState({customer: customerSelected});
   }
 
   addBooking() {
-    console.log('Last name is :', this.state.lastName);
-    console.log(this.state);
     // POST requests as necessary to backend to add customer --> booking --> table(s) using state data above
     // this.handleClose();
     const booking = {
@@ -83,7 +71,6 @@ class BookingFormModal extends Component {
       "customer": this.state.customer._links.self.href,
       "table": this.props.table._links.self.href
     }
-    console.log(booking);
     const request = new Request();
     request.post('/bookings', booking).then(() => {
       window.location = '/bookings'
@@ -100,7 +87,6 @@ class BookingFormModal extends Component {
     const { time, date, headCount, table, existingCustomers } = this.state;
     const values = { firstName, lastName, telephone, discount, time: this.props.time, date: this.props.date, headCount, table: this.props.table, existingCustomers, customer: this.state.customer };
 
-    console.log(this.props.date);
     return (
       <div>
         <Dialog

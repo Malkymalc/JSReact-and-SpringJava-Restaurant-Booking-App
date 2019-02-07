@@ -14,7 +14,6 @@ export default class Customer extends Component{
     const url = `${this.props.match.params.id}`;
     request.get(url).then(data => {
       this.setState({customer: data});
-      console.log(this.state.customer);
     })
   }
 

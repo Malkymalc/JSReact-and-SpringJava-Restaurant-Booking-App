@@ -30,7 +30,6 @@ class BookingAddReceiptForm extends Component {
     //   }
     //   arrayOfReceipts.push(receiptItem);
     // }
-    console.log(this.state.orderedItems);
     const receiptItem = {
       "name": this.state.stockItems[0].name,
       "price": this.state.stockItems[0].price,

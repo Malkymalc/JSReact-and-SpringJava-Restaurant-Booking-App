@@ -21,7 +21,6 @@ export default class BookingRow extends Component {
   }
 
   handleClickOpen(event){
-    console.log(event.target);
     if (event.target.className==="free"){
     this.props.handleClick(event.target);}
     else {

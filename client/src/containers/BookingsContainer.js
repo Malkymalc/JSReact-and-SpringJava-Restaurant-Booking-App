@@ -32,7 +32,6 @@ class BookingsContainer extends Component {
 
   openForm(data){
     this.setState({open: true, tableindex: parseInt(data.attributes.table.value), time: data.attributes.time.value});
-    console.log(this.state);
   }
 
   closeForm(data){

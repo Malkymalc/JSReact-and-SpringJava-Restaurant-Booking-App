@@ -4,7 +4,6 @@ import ReceiptsTableHeader from './ReceiptsTableHeader.js';
 
 const ReceiptList = (props) => {
 
-  console.log(props);
   if (!props.customer) {return null;}
   let receiptElements;
   if (props.customer._embedded){
