@@ -31,6 +31,8 @@ class BookingFormModal extends Component {
     };
 
     this.handleClose = this.handleClose.bind(this);
+    this.handleClickOpen = this.handleClickOpen.bind(this);
+    this.addBooking = this.addBooking.bind(this);
   }
 
   componentDidMount(){
@@ -42,11 +44,11 @@ class BookingFormModal extends Component {
     })
   }
 
-  handleClickOpen = () => {
+  handleClickOpen() {
     this.setState({ open: true });
   };
 
-  handleClose = () => {
+  handleClose () {
     this.props.closeForm();
   };
 
@@ -69,11 +71,23 @@ class BookingFormModal extends Component {
     })
   }
 
-  addBooking = () => {
+  addBooking() {
     console.log('Last name is :', this.state.lastName);
     console.log(this.state);
     // POST requests as necessary to backend to add customer --> booking --> table(s) using state data above
     // this.handleClose();
+    const booking = {
+      "date": this.props.date,
+      "time": this.props.time,
+      "headCount": this.state.headCount,
+      "customer": this.state.customer._links.self.href,
+      "table": this.props.table._links.self.href
+    }
+    console.log(booking);
+    const request = new Request();
+    request.post('/bookings', booking).then(() => {
+      window.location = '/bookings'
+    })
   }
 
 
