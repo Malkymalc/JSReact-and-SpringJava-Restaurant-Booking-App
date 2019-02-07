@@ -26,34 +26,9 @@ class ModalBookingForm extends Component {
 
         <p></p>
         <TextField
-          label="First Name"
-          onChange={handleChange('firstName')}
-          defaultValue={values.firstName}
-          required
-        />
-        <p></p>
-        <TextField
-          label='Last Name'
-          onChange={handleChange('lastName')}
-          defaultValue={values.lastName}
-        />
-        <p></p>
-        <TextField
-          label='Telephone'
-          onChange={handleChange('telephone')}
-          defaultValue={values.telephone}
-        />
-        <p></p>
-        <TextField
-          label='Discount'
-          onChange={handleChange('discount')}
-          defaultValue={values.discount}
-        />
-        <p></p>
-        <TextField
           label='headCount'
           onChange={handleChange('headCount')}
-          defaultValue={values.telephone}
+          defaultValue={values.headCount}
         />
 
         <p></p>

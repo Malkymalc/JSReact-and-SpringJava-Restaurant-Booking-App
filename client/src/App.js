@@ -43,6 +43,7 @@ class App extends Component {
             <div className="content-body-background">
               <div className="content-body">
                 <Switch>
+                  <Route exact path="/" component={BookingsContainer}/>
                   <Route exact path="/bookings" component={BookingsContainer} />
                   <Route exact path="/customers" component={CustomersContainer} />
                   <Route exact path="/customers/new" component={CustomersForm} />

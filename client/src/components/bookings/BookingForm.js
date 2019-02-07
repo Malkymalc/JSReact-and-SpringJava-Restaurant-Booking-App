@@ -15,7 +15,7 @@ const BookingForm = (props) => {
   })
 
   function handleSubmit(event){
-    event.preventDefault()
+    event.preventDefault();
     const booking = {
       "date": event.target.date.value,
       "time": event.target.time.value,
