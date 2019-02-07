@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Request from '../../helpers/requestHelper.js';
 
-class BookingAddItemForm extends Component {
+class BookingAddReceiptForm extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -43,4 +43,4 @@ class BookingAddItemForm extends Component {
     )}
   }
 
-export default BookingAddItemForm;
+export default BookingAddReceiptForm;
